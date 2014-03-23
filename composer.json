@@ -1,0 +1,26 @@
+{
+    "name": "genius-api-php-client",
+    "description": "Genius PHP Client allows the clients to consume the API directly from their products.",
+    "authors": [
+        {
+            "name": "Genius Referrals",
+            "email": "genius@geniusreferrals.com",
+            "homepage": "http://www.geniusreferrals.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "GeniusAPI": "src/",
+            "GeniusAPI\\Tests": "tests/"
+        }
+    },
+    "require": {
+        "guzzle/guzzle": "~3.7",
+        "devster/guzzle-wsse-plugin": "~1.0"
+    },
+    "require-dev": {
+        "guzzle/guzzle": "~3.7",
+        "devster/guzzle-wsse-plugin": "~1.0",
+        "phpunit/phpunit": "3.7.*"
+    }
+}
