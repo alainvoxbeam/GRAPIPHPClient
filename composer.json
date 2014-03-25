@@ -1,5 +1,5 @@
 {
-    "name": "genius-api-php-client",
+    "name": "geniusreferrals/genius-api-php-client",
     "description": "Genius PHP Client allows the clients to consume the API directly from their products.",
     "authors": [
         {
