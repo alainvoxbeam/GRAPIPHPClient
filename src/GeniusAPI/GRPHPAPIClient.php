@@ -289,7 +289,9 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Update partial elements of an advocate. Use this method when you do not need to update all the elements at the same time. Allowed parameters to be updated are: name, lastname, email, payout_threshold, claimed_balance, unclaimed_balance, campaign_slug, currency_code, advocate_referrer_token.
+     * Update partial elements of an advocate. Use this method when you do not need to update all the elements at the same time. 
+     * Allowed parameters to be updated are: name, lastname, email, payout_threshold, claimed_balance, unclaimed_balance, 
+     * campaign_slug, currency_code, advocate_referrer_token.
      *
      * @param string $strAccountSlug The client account slug
      * @param string $strAdvocateToken The advocate token
@@ -563,8 +565,10 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Create a new bonus for a given advocate token. The system processes the advocate and creates a bonus for the advocate's referrer if is needed. 
-     * All restrictions set on the campaigns for this account will be check out before giving the bonus to the advocate's referrer.
+     * Create a new bonus for a given advocate token. The system processes the advocate and creates a bonus for the 
+     * advocate's referrer if is needed. 
+     * All restrictions set on the campaigns for this account will be check out before giving the bonus to the 
+     * advocate's referrer.
      * 
      * @param string $strAccountSlug The client account slug
      * @param array $arrParams
@@ -614,7 +618,8 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Check if there is a bonus to be given to the advocate. Allows the clients to check if there is a bonus to be given, it simulates the behaivor of a POST request to /accounts/{account_slug}/bonuses resource. This resource is idempotent.
+     * Check if there is a bonus to be given to the advocate. Allows the clients to check if there is a bonus to be given, 
+     * it simulates the behaivor of a POST request to /accounts/{account_slug}/bonuses resource. This resource is idempotent.
      *
      * @param string $strAccountSlug The client account slug
      * @param string $arrParams Allowed fields: advocate_token, reference, amount_of_payments, payment_amount. 
