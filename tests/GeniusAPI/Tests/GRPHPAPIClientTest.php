@@ -5,7 +5,7 @@ namespace GeniusAPI\Tests;
 /**
  * Requires
  */
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/../../../src/GeniusAPI/config.php';
 
 use GeniusAPI\GRPHPAPIClient;
 
