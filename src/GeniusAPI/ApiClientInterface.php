@@ -74,9 +74,9 @@ interface ApiClientInterface {
 
     public function patchRedemptionRequestRedemption($strAccountSlug, $intRedemptionRequestId);
 
-    public function getBonusesSummaryPerOriginReport();
+    public function getBonusesSummaryPerOriginReport($strAdvocateToken);
 
-    public function getReferralsSummaryPerOriginReport();
+    public function getReferralsSummaryPerOriginReport($strAdvocateToken);
 
     public function testAuthentication();
 

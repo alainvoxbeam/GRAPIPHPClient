@@ -872,15 +872,17 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get bonuses redemption methods
      *
+     * @param string $strAdvocateToken The advocate token
      * @return string
      */
-    public function getBonusesSummaryPerOriginReport() {
+    public function getBonusesSummaryPerOriginReport($strAdvocateToken) {
         $objWebClient = $this->getWebClient();
 
         $strUri = $this->getApiUrl() . '/reports/bonuses-summary-per-origin';
         $arrHeaders = $this->getHeaders();
+        $strFilter = array('query' => array('filter' => 'advocate_token::'.$strAdvocateToken));
 
-        $objRequest = $objWebClient->get($strUri, $arrHeaders);
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, $strFilter);
 
         $this->objResponse = $objRequest->send();
         $strResponse = $this->objResponse->getBody(TRUE);
@@ -891,15 +893,17 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get referrals summary by referral origin.
      *
+     * @param string $strAdvocateToken The advocate token
      * @return string
      */
-    public function getReferralsSummaryPerOriginReport() {
+    public function getReferralsSummaryPerOriginReport($strAdvocateToken) {
         $objWebClient = $this->getWebClient();
 
         $strUri = $this->getApiUrl() . '/reports/referrals-summary-per-origin';
         $arrHeaders = $this->getHeaders();
+        $strFilter = array('query' => array('filter' => 'advocate_token::'.$strAdvocateToken));
 
-        $objRequest = $objWebClient->get($strUri, $arrHeaders);
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, $strFilter);
 
         $this->objResponse = $objRequest->send();
         $strResponse = $this->objResponse->getBody(TRUE);
