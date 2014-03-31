@@ -1,10 +1,10 @@
 {
-    "name": "geniusreferrals/genius-api-php-client",
-    "description": "Genius PHP Client allows the clients to consume the API directly from their products.",
+    "name": "geniusreferrals/gr-api-php-client",
+    "description": "Genius Referrals PHP Client allows clients to consume the REST API directly from their products.",
     "authors": [
         {
             "name": "Genius Referrals",
-            "email": "genius@geniusreferrals.com",
+            "email": "dev@geniusreferrals.com",
             "homepage": "http://www.geniusreferrals.com"
         }
     ],
