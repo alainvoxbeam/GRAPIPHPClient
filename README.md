@@ -27,11 +27,20 @@ use GeniusAPI\GRPHPAPIClient;
 $objGeniusApiClient = new GRPHPAPIClient('client1@mail.com', '3433148');
 
 // Get the list of Genius Referrals client accounts
-$strResponse = objGeniusApiClient->getAccounts();
+$jsonResponse = objGeniusApiClient->getAccounts();
+
+// Get the response from the previous request
+$aryResponse = json_decode($jsonResponse);
 
 // Get the response code from the previous request
 $intResponseCode = objGeniusApiClient->getResponseCode();
 
+// Create new advocate
+$aryAdvocate = array('advocate' => array("name" => "Jonh", "lastname" => "Smith", "email" => "jonh@email.com", "payout_threshold" => 10));
+$objGeniusApiClient->postAdvocate('example-com', $aryAdvocate);
+
+// Get the response code from the previous request
+$intResponseCode = objGeniusApiClient->getResponseCode();
  
 # Unit testing
 Genius Referral PHP API uses PHPUnit for unit testing. In order to run the unit tests, you'll first need to install the dependencies of the project using Composer: php composer.phar install --dev. 

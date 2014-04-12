@@ -2,11 +2,6 @@
 
 namespace GeniusAPI;
 
-/**
- * Requires
- */
-require_once __DIR__ . '/config.php';
-
 use Guzzle\Http\Client;
 use Devster\Guzzle\Plugin\Wsse\WssePlugin;
 use Guzzle\Http\Message\Response;
@@ -26,7 +21,7 @@ class GRPHPAPIClient implements ApiClientInterface {
 
     /** @var string Client API Token */
     protected $strApiToken;
-    
+
     /** @var Response */
     protected $objResponse;
 
@@ -79,9 +74,10 @@ class GRPHPAPIClient implements ApiClientInterface {
      * @return string API URL
      */
     public function getApiUrl() {
-        global $apiConfig;
-        $strUrl = $apiConfig['api_url'];
-        return $strUrl;
+        if (file_exists(__DIR__ . '/config.php')) {
+            require __DIR__ . '/config.php';
+            return $apiConfig['api_url'];
+        }
     }
 
     /**
@@ -170,13 +166,13 @@ class GRPHPAPIClient implements ApiClientInterface {
      */
     public function getAccounts($intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
         $objWebClient = $this->getWebClient();
-        
+
         $strUri = $this->getApiUrl() . '/accounts';
         $arrHeaders = $this->getHeaders();
         $strFilter = array('query' => array('page' => $intPage, 'limit' => $intLimit, 'filter' => $strFilter, 'sort' => $strSort));
 
         $objRequest = $objWebClient->get($strUri, $arrHeaders, $strFilter);
-        
+
         $this->objResponse = $objRequest->send();
         $strResponse = $this->objResponse->getBody(TRUE);
 
@@ -818,7 +814,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     public function postRedemptionRequest($strAccountSlug, array $arrParams) {
         $objWebClient = $this->getWebClient();
 
-        $strUri = $this->getApiUrl() . '/accounts/' . $strAccountSlug . '/bonuses';
+        $strUri = $this->getApiUrl() . '/accounts/' . $strAccountSlug . '/redemption-requests';
         $arrHeaders = $this->getHeaders();
 
         $objRequest = $objWebClient->post($strUri, $arrHeaders, $arrParams);
@@ -880,14 +876,14 @@ class GRPHPAPIClient implements ApiClientInterface {
 
         $strUri = $this->getApiUrl() . '/reports/bonuses-summary-per-origin';
         $arrHeaders = $this->getHeaders();
-        $strFilter = array('query' => array('filter' => 'advocate_token::'.$strAdvocateToken));
 
-        $objRequest = $objWebClient->get($strUri, $arrHeaders, $strFilter);
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array('advocate_token' => $strAdvocateToken)));
 
         $this->objResponse = $objRequest->send();
         $strResponse = $this->objResponse->getBody(TRUE);
 
         return $strResponse;
+
     }
 
     /**
@@ -901,9 +897,8 @@ class GRPHPAPIClient implements ApiClientInterface {
 
         $strUri = $this->getApiUrl() . '/reports/referrals-summary-per-origin';
         $arrHeaders = $this->getHeaders();
-        $strFilter = array('query' => array('filter' => 'advocate_token::'.$strAdvocateToken));
 
-        $objRequest = $objWebClient->get($strUri, $arrHeaders, $strFilter);
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array('advocate_token' => $strAdvocateToken)));
 
         $this->objResponse = $objRequest->send();
         $strResponse = $this->objResponse->getBody(TRUE);
@@ -925,6 +920,7 @@ class GRPHPAPIClient implements ApiClientInterface {
         $objRequest = $objWebClient->get($strUri, $arrHeaders);
 
         $this->objResponse = $objRequest->send();
+
         $strResponse = $this->objResponse->getBody(TRUE);
 
         return $strResponse;
