@@ -618,13 +618,16 @@ class GRPHPAPIClient implements ApiClientInterface {
      * it simulates the behaivor of a POST request to /accounts/{account_slug}/bonuses resource. This resource is idempotent.
      *
      * @param string $strAccountSlug The client account slug
-     * @param string $arrParams Allowed fields: advocate_token, reference, amount_of_payments, payment_amount. 
-     *                          Use the following delimiters to build your
-     *                          filters params. The vertical bar ('|') to separate individual filter 
-     *                          phrases and a double colon ('::') to separate the names and values. 
-     *                          The delimiter of the double colon (':') separates the property name 
-     *                          from the comparison value, enabling the comparison value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param array $arrParams
+     * Request Format Not all parameters in the content of the request are mandatory. 
+     * Parameters amount_of_payments and payment_amount are optional.
+     * {
+     *     "advocate_token":"7c4ae87701ef6e6c9ab64941215da6b1f90f5c7a",
+     *     "reference": "HSY7292D00",
+     *     "amount_of_payments": 3,
+     *     "payment_amount": 10
+     * }
+     * 
      * @return string
      */
     public function getBonusesCheckup($strAccountSlug, array $arrParams) {
@@ -632,7 +635,7 @@ class GRPHPAPIClient implements ApiClientInterface {
 
         $strUri = $this->getApiUrl() . '/accounts/' . $strAccountSlug . '/bonuses/checkup';
         $arrHeaders = $this->getHeaders();
-        $strFilter = array('query' => array('filter' => $arrParams));
+        $strFilter = array('query' => $arrParams);
 
         $objRequest = $objWebClient->get($strUri, $arrHeaders, $strFilter);
 

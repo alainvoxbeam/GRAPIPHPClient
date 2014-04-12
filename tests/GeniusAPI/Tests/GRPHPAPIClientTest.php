@@ -182,28 +182,28 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
-    public function testPostRedemptionRequest() {
-
-        $aryRedemptionRequest = array("redemption_request" => array("advocate_token" => "07c159102f66a63b18d4da39bf91b06bacb7db8d",
-                "request_status_slug" => "requested",
-                "request_action_slug" => "credit",
-                "currency_code" => "USD",
-                "amount" => 50,
-                "description" => "credit",
-                "advocates_paypal_username" => "alain@mail.com"));
-        $objResponse = $this->objWebClient->postRedemptionRequest('example-com', $aryRedemptionRequest);
-        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
-
-        $strLocation = $objResponse->getLocation();
-
-        $arrHeaders = $this->getHeaders();
-
-        $objClient = $this->objWebClient->getWebClient();
-        $objRequest = $objClient->get($strLocation, $arrHeaders);
-        $objResponse = $objRequest->send();
-
-        $this->assertEquals($objResponse->getStatusCode(), 200);
-    }
+//    public function testPostRedemptionRequest() {
+//
+//        $aryRedemptionRequest = array("redemption_request" => array("advocate_token" => "07c159102f66a63b18d4da39bf91b06bacb7db8d",
+//                "request_status_slug" => "processing",
+//                "request_action_slug" => "goods",
+//                "currency_code" => "USD",
+//                "amount" => 50,
+//                "description" => "credit",
+//                "advocates_paypal_username" => "alain@mail.com"));
+//        $objResponse = $this->objWebClient->postRedemptionRequest('example-com', $aryRedemptionRequest);
+//        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+//
+//        $strLocation = $objResponse->getLocation();
+//
+//        $arrHeaders = $this->getHeaders();
+//
+//        $objClient = $this->objWebClient->getWebClient();
+//        $objRequest = $objClient->get($strLocation, $arrHeaders);
+//        $objResponse = $objRequest->send();
+//
+//        $this->assertEquals($objResponse->getStatusCode(), 200);
+//    }
 
     public function testGetBonusesSummaryPerOriginReport() {
 
