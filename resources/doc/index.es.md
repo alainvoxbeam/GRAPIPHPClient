@@ -7,65 +7,117 @@ La cual permite a sus clientes, a través de PHP, consumir los recursos de su RE
 Instalación:
 ------------
 
-El proceso de instalación de este cliente es bien sencillo, solo en tres pasos. 
+The instalation process for this client in very simple and you can do it using different ways. 
 
-### 1- Agregar la biblioteca jQuery a su página Web. 
+### Using Composer
 
-Hay varias vías para integrar jQuery a su página Web, para consultar otras vías dirigirse al sitio de jQuery www.jquery.com. 
-En este ejemplo vamos a agregar jQuery utilizando la etiqueta script. Agregue la etiqueta en la sección head de su página.
+We recommend to use composer to install the client. 
+
+#### 1- Install Composer
+
+```cd``` into the directory of your project (eg: my_project) and run:
 
 ```
-<!DOCTYPE html>
-<html>
-    <head>
-        <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
-    </head>
-    <body>
-    </body>
-</html>
+curl -sS https://getcomposer.org/installer | php
+```
+
+#### 2- Add the GRAPIPHPClient package as a dependency by running: 
+
+```
+php composer.phar require geniusreferrals/gr-api-php-client:dev-master
+```
+
+#### 3- Require Composer's autoloader
+
+```
+require_once '../vendor/autoload.php';
+```
+
+### Using Git
+
+#### 1- Clone the repo 
+
+If you don't want to use composer you can install the package by cloning the git repo. 
+```cd``` into the folder you want to save the package in and run: 
+
+```
+git clone git@github.com:GeniusReferrals/GRAPIPHPClient.git
+```
+
+#### 2- Require the client class on the class you want to use the client. 
+
 ``` 
+require_once 'src/GeniusReferrals/GRPHPAPIClient.php';
+```` 
 
-### 2- Descargar la biblioteca GRAPIJavascriptClient 
+### Downloading the GRAPIPHPClient client
 
-Clone la biblioteca usando git dentro de su proyecto: 
+#### 1- Download the package
 
-```
-git clone git@github.com:GeniusReferrals/GRAPIJavascriptClient.git
-```
+Download the zip client using this link [GRAPIPHPClient](https://github.com/GeniusReferrals/GRAPIPHPClient/archive/master.zip), 
+unzip the package and save it in a folder under your project directory. 
 
-#### O
+#### 2- Require the client class on the class you want to use the client. 
 
-Descargue la biblioteca compactada utilizando este vínculo [GRAPIJavascriptClient](https://github.com/GeniusReferrals/GRAPIJavascriptClient/archive/master.zip) , descompactela y guardela en un directorio en su proyecto que sea de acceso público, ejemplo: /web 
-
-### 3- Agregar la biblioteca GRAPIJavascriptClient en su página Web. 
-
-Utilize la etiqueta script para agregar la biblioteca a su página Web. 
-      
-```
-<!DOCTYPE html>
-<html>
-    <head>
-        <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
-        <script src="../geniusreferrals-api-client.js"></script>
-    </head>
-    <body>
-    </body>
-</html>
 ``` 
-Después de estos pasos de instalación cargue su página en un navegador Web y revise que la bibliotecas de jQuery y GRAPIJavascriptClient fueron cargadas exitosamente.
+require_once 'src/GeniusReferrals/GRPHPAPIClient.php';
+```` 
 
-Si necesita más ayuda revise este ejemplo: 
+Using the Client
+----------------
 
-* [geniusreferrals tests](https://github.com/GeniusReferrals/GRAPIJavascriptClient/blob/master/tests/geniusreferrals-test.html) 
+```
+<?php
 
-Ejemplos:
----------
+require_once '../vendor/autoload.php';
 
-Hemos implementado varios ejemplos donde se muestra cómo utilizar la biblioteca. Por favor revise [Ejemplos de integración](https://github.com/GeniusReferrals/GRAPIJavascriptClient/blob/master/tests/geniusreferrals-test.html). 
+use GeniusReferrals\GRPHPAPIClient;
 
-Para probar los ejemplos debe sustituir los parameters YOUR_USERNAME y YOUR_API_TOKEN que aparecen en el archivo [geniusreferrals-test.js](https://github.com/GeniusReferrals/GRAPIJavascriptClient/blob/master/tests/geniusreferrals-test.js) por su usuario y api token asignados en la plataforma Genius Referrals.
+// Create a new GRPHPAPIClient object
+$objGeniusReferralsAPIClient = new GRPHPAPIClient('YOUR_USERNAME', 'YOUR_API_TOKEN');
+
+//Test authentication
+$jsonResponse = $objGeniusReferralsAPIClient->testAuthentication();
+
+// Get the list of Genius Referrals client accounts
+$jsonResponse = $objGeniusReferralsAPIClient->getAccounts();
+
+// Get the response from the previous request
+$aryResponse = json_decode($jsonResponse);
+
+// Get the response code from the previous request
+$intResponseCode = $objGeniusReferralsAPIClient->getResponseCode();
+
+// Create new advocate
+$aryAdvocate = array('advocate' => array("name" => "Jonh", "lastname" => "Smith", "email" => "jonh@email.com", "payout_threshold" => 10));
+$objGeniusReferralsAPIClient->postAdvocate('example-com', $aryAdvocate);
+
+// Get the response code from the previous request
+$intResponseCode = $objGeniusReferralsAPIClient->getResponseCode();
+ 
+```
+
+### Más ejemplos
+
+Hemos implementado varios ejemplos donde se muestra cómo utilizar la biblioteca. Por favor revise [Integration examples](examples.en.md).
+
+Para probar los ejemplos debe sustituir los parameters YOUR_USERNAME y YOUR_API_TOKEN por su usuario y api token asignados en la plataforma Genius Referrals.
+
+Unit testing
+------------
+
+Genius Referral PHP API uses PHPUnit for unit testing. In order to run the unit tests, you'll first need to install the dependencies of the project using Composer: ```php composer.phar install --dev```. 
+
+You can then run the tests using using the following command at the project root:
+```
+phpunit -c vendor/geniusreferrals/genius-api-php-client/
+```
+
+If you are running the tests with xdebug enabled, you may encounter the following issue: ```Fatal error: Maximum function nesting level of '100' reached, aborting!```. This can be resolved by adding ```xdebug.max_nesting_level = 200``` to your php.ini file.
+
+
 
 Reportando un problema o nueva funcionalidad:
 ---------------------------------------------
 
-Para reportar un problema utilice [Github issue tracker.](https://github.com/GeniusReferrals/GRAPIJavascriptClient/issues)
+Para reportar un problema utilice [Github issue tracker.](https://github.com/GeniusReferrals/GRAPIPHPClient/issues)
