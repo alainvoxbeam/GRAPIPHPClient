@@ -99,7 +99,7 @@ $intResponseCode = $objGeniusReferralsAPIClient->getResponseCode();
 
 ### Más ejemplos
 
-Hemos implementado varios ejemplos donde se muestra cómo utilizar la biblioteca. Por favor revise [Ejamplos de integración](examples.en.md).
+Hemos implementado varios ejemplos donde se muestra cómo utilizar la biblioteca. Por favor revise [Ejemplos de integración](examples.en.md).
 
 Para probar los ejemplos debe sustituir los parameters YOUR_USERNAME y YOUR_API_TOKEN por su usuario y api token asignados en la plataforma Genius Referrals.
 
