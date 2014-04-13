@@ -112,7 +112,7 @@ The client uses PHPUnit for unit testing. In order to run the unit tests, you'll
 
 You can then run the tests using using the following command at the project root:
 ```
-phpunit -c vendor/geniusreferrals/genius-api-php-client/
+phpunit -c vendor/geniusreferrals/gr-api-php-client/
 ```
 
 If you are running the tests with xdebug enabled, you may encounter the following issue: ```Fatal error: Maximum function nesting level of '100' reached, aborting!```. This can be resolved by adding ```xdebug.max_nesting_level = 200``` to your php.ini file.
