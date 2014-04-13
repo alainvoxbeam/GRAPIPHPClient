@@ -6,17 +6,23 @@ use Guzzle\Http\Client;
 use Devster\Guzzle\Plugin\Wsse\WssePlugin;
 use Guzzle\Http\Message\Response;
 
-/**
- * This class is used to communicate with the Genius Referrals Public API
- *
- * @author Genius Referrals
+/*
+ * GRAPIPHPClient is the PHP client to consume the Genius Referrals RESTful API.
+ * 
+ * Genius Referrals is a referral marketing platform and word of mouse platform that allows any 
+ * company/person with a Website to increase his costumer acquisition by using word of mouth techniques 
+ * thought Facebook, Twitter, Google +, Pinterest, Linkedin, Email and personal recommendations. 
+ * 
+ * For more information about Genius referrals please visit www.geniusreferrals.com
+ * 
+ * @author Genius Referrals Team <dev@geniusreferrals.com>
  */
 class GRPHPAPIClient implements ApiClientInterface {
 
     /** @var Client Guzzle client */
     protected $objClient = null;
 
-    /** @var string Client email */
+    /** @var string Client username */
     protected $strUsername;
 
     /** @var string Client API Token */
@@ -83,17 +89,16 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Add common filters to a given API URI.
      *
-     * @param string $strUri API URI
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: name. Use the following delimiters to build your
+     * @param string $strUri. API URI
+     * @param integer page.  The current page, default is 1.
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: name. Use the following delimiters to build your
      *                          filters params. The vertical bar ('|') to separate individual filter 
      *                          phrases and a double colon ('::') to separate the names and values. 
      *                          The delimiter of the double colon (':') separates the property name 
      *                          from the comparison value, enabling the comparison value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort Allowed fields: name, created. Use sort query-string parameter that 
+     * @param string $strSort. Allowed fields: name, created. Use sort query-string parameter that 
      *                        contains a delimited set of property names. For each property name, sort 
      *                        in ascending order, and for each property prefixed with a dash ('-') sort 
      *                        in descending order. Separate each property name with a vertical bar ('|'),
@@ -149,14 +154,13 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get the list of Genius Referrals client accounts
      *
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: name. Use the following delimiters to build your filters params. The vertical bar ('|') to separate 
+     * @param integer page.  The current page, default is 1.
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: name. Use the following delimiters to build your filters params. The vertical bar ('|') to separate 
      *                          individual filter phrases and a double colon ('::') to separate the names and values. The delimiter of the double 
      *                          colon (':') separates the property name from the comparison value, enabling the comparison value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort   Allowed fields: name, created. Use sort query-string parameter that contains a delimited set of property names. 
+     * @param string $strSort.   Allowed fields: name, created. Use sort query-string parameter that contains a delimited set of property names. 
      *                          For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending order. 
      *                          Separate each property name with a vertical bar ('|'), which is consistent with the separation of the name\/value pairs in 
      *                          filtering, above. For example, if we want to retrieve users in order of their last name (ascending), first name (ascending) 
@@ -203,15 +207,14 @@ class GRPHPAPIClient implements ApiClientInterface {
      * Get the list of Genius Referrals advocates for a given program
      *
      * @param string $strAccountSlug The client account slug
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: name, lastname, email, bonus_exchange_method_slug, campaign_slug, from, to, created. 
+     * @param integer page.  The current page, default is 1.
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: name, lastname, email, bonus_exchange_method_slug, campaign_slug, from, to, created. 
      *                          Use the following delimiters to build your filters params. The vertical bar ('|') to separate individual filter phrases 
      *                          and a double colon ('::') to separate the names and values. The delimiter of the double colon (':') separates the 
      *                          property name from the comparison value, enabling the comparison value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort   Allowed fields: name, lastname, email , created. Use sort query-string parameter that contains a delimited set of property 
+     * @param string $strSort.   Allowed fields: name, lastname, email , created. Use sort query-string parameter that contains a delimited set of property 
      *                          names. For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in 
      *                          descending order. Separate each property name with a vertical bar ('|'), which is consistent with the separation of the 
      *                          name\/value pairs in filtering, above. For example, if we want to retrieve users in order of their last name (ascending), 
@@ -324,15 +327,15 @@ class GRPHPAPIClient implements ApiClientInterface {
      *
      * @param string $strAccountSlug The client account slug
      * @param string $strAdvocateToken The advocate token
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: username, is_active. Use the following delimiters to build your filters params. 
+     * @param integer page.  The current page, default is 1.
+
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: username, is_active. Use the following delimiters to build your filters params. 
      *                          The vertical bar ('|') to separate individual filter phrases and a double colon ('::') to separate the names and values. 
      *                          The delimiter of the double colon (':') separates the property name from the comparison value, enabling the comparison 
      *                          value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort   Allowed fields: username, created. Use sort query-string parameter that contains a delimited set of property names. 
+     * @param string $strSort.   Allowed fields: username, created. Use sort query-string parameter that contains a delimited set of property names. 
      *                          For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending order. 
      *                          Separate each property name with a vertical bar ('|'), which is consistent with the separation of the name\/value pairs in 
      *                          filtering, above. For example, if we want to retrieve users in order of their last name (ascending), first name (ascending) 
@@ -441,15 +444,15 @@ class GRPHPAPIClient implements ApiClientInterface {
      *
      * @param string $strAccountSlug The client account slug
      * @param string $strAdvocateToken The advocate token
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: url, referral_origin_slug, created. Use the following delimiters to build your filters params. 
+     * @param integer page.  The current page, default is 1.
+
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: url, referral_origin_slug, created. Use the following delimiters to build your filters params. 
      *                          The vertical bar ('|') to separate individual filter phrases and a double colon ('::') to separate the names and values. 
      *                          The delimiter of the double colon (':') separates the property name from the comparison value, enabling the comparison 
      *                          value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort   Allowed fields: created. Use sort query-string parameter that contains a delimited set of property names. 
+     * @param string $strSort.   Allowed fields: created. Use sort query-string parameter that contains a delimited set of property names. 
      *                          For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending order. 
      *                          Separate each property name with a vertical bar ('|'), which is consistent with the separation of the name\/value pairs 
      *                          in filtering, above. For example, if we want to retrieve users in order of their last name (ascending), first name (ascending) 
@@ -528,15 +531,15 @@ class GRPHPAPIClient implements ApiClientInterface {
      * Get the list of bonuses for a given advocate.
      *
      * @param string $strAccountSlug The client account slug
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: name, lastname, email, campaign_slug, from, to, created. Use the following delimiters to build your 
+     * @param integer page.  The current page, default is 1.
+
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: name, lastname, email, campaign_slug, from, to, created. Use the following delimiters to build your 
      *                          filters params. The vertical bar ('|') to separate individual filter phrases and a double colon ('::') to separate 
      *                          the names and values. The delimiter of the double colon (':') separates the property name from the comparison value, 
      *                          enabling the comparison value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort   Allowed fields: name, lastname, email, created. Use sort query-string parameter that contains a delimited set of property 
+     * @param string $strSort.   Allowed fields: name, lastname, email, created. Use sort query-string parameter that contains a delimited set of property 
      *                          names. For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending 
      *                          order. Separate each property name with a vertical bar ('|'), which is consistent with the separation of 
      *                          the name\/value pairs in filtering, above. 
@@ -649,15 +652,15 @@ class GRPHPAPIClient implements ApiClientInterface {
      * Get the list of bonuses traces.
      *
      * @param string $strAccountSlug The client account slug
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: reference, result, bonus_amount, advocate_token, advocate_referrer_token, campaign_slug, from, to, 
+     * @param integer page.  The current page, default is 1.
+
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: reference, result, bonus_amount, advocate_token, advocate_referrer_token, campaign_slug, from, to, 
      *                          created. Use the following delimiters to build your filters params. The vertical bar ('|') to separate individual 
      *                          filter phrases and a double colon ('::') to separate the names and values. The delimiter of the double colon (':') 
      *                          separates the property name from the comparison value, enabling the comparison value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort   Allowed fields: created. Use sort query-string parameter that contains a delimited set of property names. 
+     * @param string $strSort.   Allowed fields: created. Use sort query-string parameter that contains a delimited set of property names. 
      *                          For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending order. 
      *                          Separate each property name with a vertical bar ('|'), which is consistent with the separation of the name\/value pairs 
      *                          in filtering, above. For example, if we want to retrieve users in order of their last name (ascending), 
@@ -705,15 +708,15 @@ class GRPHPAPIClient implements ApiClientInterface {
      * Get the list of Genius Referrals campaings for a given program.
      *
      * @param string $strAccountSlug The client account slug
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: name, description, start_date, end_date, is_active (true|false), created. 
+     * @param integer page.  The current page, default is 1.
+
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: name, description, start_date, end_date, is_active (true|false), created. 
      *                          Use the following delimiters to build your filters params. The vertical bar ('|') to separate individual filter 
      *                          phrases and a double colon ('::') to separate the names and values. The delimiter of the double colon (':') 
      *                          separates the property name from the comparison value, enabling the comparison value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort   Allowed fields: campaign_slug, created, start_date, end_date, is_active. Use sort query-string parameter that contains 
+     * @param string $strSort.   Allowed fields: campaign_slug, created, start_date, end_date, is_active. Use sort query-string parameter that contains 
      *                          a delimited set of property names. For each property name, sort in ascending order, and for each property prefixed 
      *                          with a dash ('-') sort in descending order. Separate each property name with a vertical bar ('|'), 
      *                          which is consistent with the separation of the name\/value pairs in filtering, above. 
@@ -762,16 +765,16 @@ class GRPHPAPIClient implements ApiClientInterface {
      * Get the list of redemption requests.
      *
      * @param string $strAccountSlug The client account slug
-     * @param integer $intPage Zero based offset index for the results. e.g. 0 would start
-     *                         at the first result and 10 would start at the eleventh result.
-     * @param integer $intLimit Maximum number of results to return in the response.
-     * @param string $strFilter Allowed fields: redemption_request_id, name, lastname, email, request_status_slug, 
+     * @param integer page.  The current page, default is 1.
+
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFilter. Allowed fields: redemption_request_id, name, lastname, email, request_status_slug, 
      *                          request_action_slug, from, to, created. Use the following delimiters to build your filters params. 
      *                          The vertical bar ('|') to separate individual filter phrases and a double colon ('::') to separate the names and values. 
      *                          The delimiter of the double colon (':') separates the property name from the comparison value, 
      *                          enabling the comparison value to contain spaces. 
      *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort   Allowed fields: ame, lastname, email, created. Use sort query-string parameter that contains a delimited set 
+     * @param string $strSort.   Allowed fields: ame, lastname, email, created. Use sort query-string parameter that contains a delimited set 
      *                          of property names. For each property name, sort in ascending order, and for each property prefixed with 
      *                          a dash ('-') sort in descending order. Separate each property name with a vertical bar ('|'), 
      *                          which is consistent with the separation of the name\/value pairs in filtering, above. 
