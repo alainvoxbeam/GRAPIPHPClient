@@ -17,7 +17,11 @@ We recommend to use composer to install the client.
 
 ```cd``` into the directory of your project (eg: my_project) and run:
 
-#### 2- Add the GRAPIPHPClient package as a dependency: 
+```
+php composer.phar require geniusreferrals/gr-api-php-client:dev-master
+```
+
+#### 2- Add the GRAPIPHPClient package as a dependency by running: 
 
 ```
 php composer.phar require geniusreferrals/gr-api-php-client:dev-master
