@@ -121,4 +121,4 @@ If you are running the tests with xdebug enabled, you may encounter the followin
 Reporting an issue or a feature request
 ---------------------------------------
 
-Issues and feature requests are tracked in the [Github issue tracker.](https://github.com/GeniusReferrals/GRAPIJavascriptClient/issues)
+Issues and feature requests are tracked in the [Github issue tracker.](https://github.com/GeniusReferrals/GRAPIPHPClient/issues)
