@@ -1,6 +1,6 @@
 <?php
 
-namespace GeniusAPI;
+namespace GeniusReferrals;
 
 use Guzzle\Http\Message\Response;
 

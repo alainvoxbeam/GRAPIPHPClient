@@ -1,13 +1,13 @@
 <?php
 
-namespace GeniusAPI\Tests;
+namespace GeniusReferrals\Tests;
 
 /**
  * Requires
  */
 require_once __DIR__ . '/../../../../../vendor/autoload.php';
 
-use GeniusAPI\GRPHPAPIClient;
+use GeniusReferrals\GRPHPAPIClient;
 
 class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
 
@@ -15,7 +15,7 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
 
     public function setUp() {
 
-        $this->objWebClient = new GRPHPAPIClient('client1@mail.com', '3433148');
+        $this->objWebClient = new GRPHPAPIClient('YOUR_USERNAME', 'YOUR_API_TOKEN');
     }
 
     public function testGetRoot() {

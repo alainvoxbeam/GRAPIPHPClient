@@ -1,6 +1,6 @@
 <?php
 
-namespace GeniusAPI;
+namespace GeniusReferrals;
 
 use Guzzle\Http\Client;
 use Devster\Guzzle\Plugin\Wsse\WssePlugin;

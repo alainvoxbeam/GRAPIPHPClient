@@ -1,6 +1,6 @@
 {
     "name": "geniusreferrals/gr-api-php-client",
-    "description": "Genius Referrals PHP Client allows clients to consume the REST API directly from their products.",
+    "description": "The Genius Referrals PHP client allows clients to consume the Genius Referrals RESTful API easily from php.",
     "authors": [
         {
             "name": "Genius Referrals",
@@ -10,8 +10,8 @@
     ],
     "autoload": {
         "psr-0": {
-            "GeniusAPI": "src/",
-            "GeniusAPI\\Tests": "tests/"
+            "GeniusReferrals": "src/",
+            "GeniusReferrals\\Tests": "tests/"
         }
     },
     "require": {
