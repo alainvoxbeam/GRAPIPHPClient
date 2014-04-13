@@ -12,7 +12,7 @@ curl -sS https://getcomposer.org/installer | php
 
 # Add Genius Referral PHP API as a dependency
 ```
-php composer.phar require geniusreferrals/genius-api-php-client:dev-master
+php composer.phar require geniusreferrals/gr-api-php-client:dev-master
 ```
 After installing, you need to require Composer's autoloader:
 ```
