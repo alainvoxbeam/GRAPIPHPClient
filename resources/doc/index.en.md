@@ -9,29 +9,29 @@ Instalation:
 
 The instalation process for this client in very simple and you can do it using different ways. 
 
-## Using Composer
+### Using Composer
 
 We recommend to use composer to install the client. 
 
-### 1- Install Composer
+#### 1- Install Composer
 
 ```cd``` into the directory of your project (eg: my_project) and run:
 
-### 2- Add the GRAPIPHPClient package as a dependency: 
+#### 2- Add the GRAPIPHPClient package as a dependency: 
 
 ```
 php composer.phar require geniusreferrals/gr-api-php-client:dev-master
 ```
 
-### 3- Require Composer's autoloader
+#### 3- Require Composer's autoloader
 
 ```
 require_once '../vendor/autoload.php';
 ```
 
-## Using Git
+### Using Git
 
-### 1- Clone the repo 
+#### 1- Clone the repo 
 
 If you don't want to use composer you can install the package by cloning the git repo. 
 ```cd``` into the folder you want to save the package in and run: 
@@ -40,20 +40,20 @@ If you don't want to use composer you can install the package by cloning the git
 git clone git@github.com:GeniusReferrals/GRAPIPHPClient.git
 ```
 
-### 2- Require the client class on the class you want to use the client. 
+#### 2- Require the client class on the class you want to use the client. 
 
 ``` 
 require_once 'src/GeniusReferrals/GRPHPAPIClient.php';
 ```` 
 
-## Downloading the GRAPIPHPClient client
+### Downloading the GRAPIPHPClient client
 
-### 1- Download the package
+#### 1- Download the package
 
 Download the zip client using this link [GRAPIPHPClient](https://github.com/GeniusReferrals/GRAPIPHPClient/archive/master.zip), 
 unzip the package and save it in a folder under your project directory. 
 
-### 2- Require the client class on the class you want to use the client. 
+#### 2- Require the client class on the class you want to use the client. 
 
 ``` 
 require_once 'src/GeniusReferrals/GRPHPAPIClient.php';
@@ -90,7 +90,7 @@ $intResponseCode = $objGeniusReferralsAPIClient->getResponseCode();
  
 ```
 
-## More examples
+### More examples
 
 We have implemented more examples to show you how to utilize the client. Please check them out here [Integration examples](examples.en.md).
 
