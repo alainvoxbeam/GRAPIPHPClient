@@ -1,6 +1,13 @@
 GRAPIPHPClient
 ==============
 
+[![Latest Stable Version](https://poser.pugx.org/geniusreferrals/gr-api-php-client/v/stable.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+[![Total Downloads](https://poser.pugx.org/geniusreferrals/gr-api-php-client/downloads.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+[![Latest Unstable Version](https://poser.pugx.org/geniusreferrals/gr-api-php-client/v/unstable.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+[![License](https://poser.pugx.org/geniusreferrals/gr-api-php-client/license.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+[![Monthly Downloads](https://poser.pugx.org/geniusreferrals/gr-api-php-client/d/monthly.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+[![Daily Downloads](https://poser.pugx.org/geniusreferrals/gr-api-php-client/d/daily.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+
 # Installing Genius Referral PHP API via Composer
 
 The recommended way to install Genius Referral PHP API is through Composer.
