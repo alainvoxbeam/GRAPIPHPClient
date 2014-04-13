@@ -8,57 +8,23 @@ GRAPIPHPClient
 [![Monthly Downloads](https://poser.pugx.org/geniusreferrals/gr-api-php-client/d/monthly.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
 [![Daily Downloads](https://poser.pugx.org/geniusreferrals/gr-api-php-client/d/daily.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
 
-# Installing Genius Referral PHP API via Composer
 
-The recommended way to install Genius Referral PHP API is through Composer.
+GRAPIPHPClient is the PHP client to consume the Genius Referrals RESTful API.
 
-# Install Composer
-```
-curl -sS https://getcomposer.org/installer | php
-```
+Genius Referrals is a referral marketing platform and word of mouse platform that allows 
+any company/person with a Website to increase his costumer acquisition by using word of mouth techniques thought 
+Facebook, Twitter, Google +, Pinterest, Linkedin, Email and personal recommendations.  For more information about Genius referrals please visit www.geniusreferrals.com.
 
-# Add Genius Referral PHP API as a dependency
-```
-php composer.phar require geniusreferrals/gr-api-php-client:dev-master
-```
-After installing, you need to require Composer's autoloader:
-```
-require_once '../vendor/autoload.php';
-```
-# Using Genius Referral PHP API
-```
-<?php
+[Set up in English](resources/doc/index.en.md)
 
-require_once '../vendor/autoload.php';
 
-use GeniusAPI\GRPHPAPIClient;
+GRAPIPHPClient
+=====================
 
-// Create a new GRPHPAPIClient object
-$objGeniusApiClient = new GRPHPAPIClient('client1@mail.com', '3433148');
+GRAPIJavascriptClient es el cliente de PHP para consumir la RESTful API de la plataforma Genius Referrals.
 
-// Get the list of Genius Referrals client accounts
-$jsonResponse = objGeniusApiClient->getAccounts();
+Genius Referrals es una plataforma de marketing de referencia y marketing de boca a boca (word of mouse). La cual le permite a cualquier 
+empresa/persona con un sitio Web incrementar la adquisición de sus clientes usando técnicas de marketing de boca a boca a través de las redes
+Facebook, Twitter, Google +, Pinterest, Email y recomendaciones personales. Para más información sobre Genius Referrals, por favor visite www.geniusreferrals.com.
 
-// Get the response from the previous request
-$aryResponse = json_decode($jsonResponse);
-
-// Get the response code from the previous request
-$intResponseCode = objGeniusApiClient->getResponseCode();
-
-// Create new advocate
-$aryAdvocate = array('advocate' => array("name" => "Jonh", "lastname" => "Smith", "email" => "jonh@email.com", "payout_threshold" => 10));
-$objGeniusApiClient->postAdvocate('example-com', $aryAdvocate);
-
-// Get the response code from the previous request
-$intResponseCode = objGeniusApiClient->getResponseCode();
- 
-```
-
-# Unit testing
-Genius Referral PHP API uses PHPUnit for unit testing. In order to run the unit tests, you'll first need to install the dependencies of the project using Composer: ```php composer.phar install --dev```. 
-
-You can then run the tests using using the following command at the project root:
-```
-phpunit -c vendor/geniusreferrals/genius-api-php-client/
-```
-If you are running the tests with xdebug enabled, you may encounter the following issue: ```Fatal error: Maximum function nesting level of '100' reached, aborting!```. This can be resolved by adding ```xdebug.max_nesting_level = 200``` to your php.ini file.
+[Configuración en Español](resources/doc/index.es.md)
