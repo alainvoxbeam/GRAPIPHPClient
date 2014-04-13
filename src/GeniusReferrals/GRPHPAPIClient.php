@@ -32,7 +32,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     protected $objResponse;
 
     /**
-     * Create a new GRPHPAPIClient
+     * Create a new GRPHPAPIClient.
      * 
      * @param string $strUsername
      * @param string $strApiToken
@@ -43,7 +43,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Sign all requests with the WssePlugin
+     * Sign all requests with the WssePlugin.
      *
      * @param string $strUsername Client email
      * @param string $strApiToken Client API Token
@@ -58,7 +58,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get the Guzzle HTTP client object
+     * Get the Guzzle HTTP client object.
      *
      * @return Client Guzzle HTTP client
      * @see    Guzzle\Http\Client
@@ -124,7 +124,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get the response code from the previous request
+     * Get the response code from the previous request.
      *
      * @return integer
      */
@@ -133,7 +133,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Welcome to Genius Referral Core API
+     * Welcome to Genius Referral Core API.
      *
      * @return string
      */
@@ -152,7 +152,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get the list of Genius Referrals client accounts
+     * Get the list of client accounts.
      *
      * @param integer page.  The current page, default is 1.
      * @param integer $intLimit. Maximum number of results to return in the response.
@@ -184,9 +184,9 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get a Genius Referrals client account by a given slug
+     * Get a  client account.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @return string
      */
     public function getAccount($strAccountSlug) {
@@ -204,9 +204,9 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get the list of Genius Referrals advocates for a given program
+     * Get the list of  advocates.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param integer page.  The current page, default is 1.
      * @param integer $intLimit. Maximum number of results to return in the response.
      * @param string $strFilter. Allowed fields: name, lastname, email, bonus_exchange_method_slug, campaign_slug, from, to, created. 
@@ -240,7 +240,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Create a new Genius Referral advocate.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param array $arrParams
      * Request Format All parameters in the content of the request are mandatory.
      * {
@@ -267,10 +267,10 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get a Genius Referrals advocate by a given token
+     * Get an Genius Referrals advocate.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @return string
      */
     public function getAdvocate($strAccountSlug, $strAdvocateToken) {
@@ -292,8 +292,8 @@ class GRPHPAPIClient implements ApiClientInterface {
      * Allowed parameters to be updated are: name, lastname, email, payout_threshold, claimed_balance, unclaimed_balance, 
      * campaign_slug, currency_code, advocate_referrer_token.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @param array $arrParams
      * Request Format
      * {
@@ -323,10 +323,10 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get the advocate's payment methods
+     * Get the advocate's payment methods.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
@@ -361,8 +361,8 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Create a new payment method.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @param array $arrParams
      * Request Format All parameters in the content of the request are mandatory.
      * {
@@ -388,10 +388,10 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get an advocate's payment method
+     * Get an advocate's payment method.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @param integer $intAdvocatePaymentMethodId The payment method id
      * @return string
      */
@@ -412,8 +412,8 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Update a payment method.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @param integer $intAdvocatePaymentMethodId The payment method id
      * @param array $arrParams
      * Request Format All parameters in the content of the request are mandatory.
@@ -440,10 +440,10 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get the list of referrals for a given advocate.
+     * Get the list of referrals.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
@@ -476,10 +476,10 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get a referral by a given id.
+     * Get a referral.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @param integer $intReferralId The referral id
      * @return string
      */
@@ -500,8 +500,8 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Create a new Genius Referral referral.
      * 
-     * @param string $strAccountSlug The client account slug
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
      * @param array $arrParams
      * Request Format All parameters in the content of the request are mandaroty.
      * {
@@ -528,9 +528,9 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get the list of bonuses for a given advocate.
+     * Get the list of bonuses.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
@@ -569,7 +569,7 @@ class GRPHPAPIClient implements ApiClientInterface {
      * All restrictions set on the campaigns for this account will be check out before giving the bonus to the 
      * advocate's referrer.
      * 
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param array $arrParams
      * Request Format Not all parameters in the content of the request are mandatory. Parameters amount_of_payments and payment_amount are optional.
      * {
@@ -596,9 +596,9 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get a bonus by a given id
+     * Get a bonus.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param integer $intBonusId The bonus id
      * @return string
      */
@@ -620,7 +620,7 @@ class GRPHPAPIClient implements ApiClientInterface {
      * Check if there is a bonus to be given to the advocate. Allows the clients to check if there is a bonus to be given, 
      * it simulates the behaivor of a POST request to /accounts/{account_slug}/bonuses resource. This resource is idempotent.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param array $arrParams
      * Request Format Not all parameters in the content of the request are mandatory. 
      * Parameters amount_of_payments and payment_amount are optional.
@@ -651,7 +651,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get the list of bonuses traces.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
@@ -686,7 +686,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get a bonus request trace.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param integer $intTraceId The trace id
      * @return string
      */
@@ -705,9 +705,9 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get the list of Genius Referrals campaings for a given program.
+     * Get the list of campaings.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
@@ -741,10 +741,10 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get a Genius Referrals campaign by a given slug.
+     * Get a campaign.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param string $strCampaignSlug The campaign slug
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strCampaignSlug. The campaign slug
      * @return string
      */
     public function getCampaign($strAccountSlug, $strCampaignSlug) {
@@ -764,7 +764,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get the list of redemption requests.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
@@ -801,7 +801,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Create a redemption request.
      * 
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param array $arrParams
      * Request Format Mandatory parameters: advocate_token, request_status_slug, request_action_slug, currency_code, amount.
      * {
@@ -831,9 +831,9 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get a redemption request by a given id.
+     * Get a redemption request.
      *
-     * @param string $strAccountSlug The client account slug
+     * @param string $strAccountSlug. The client account slug
      * @param integer $intRedemptionRequestId The redemption request id
      * @return string
      */
@@ -852,10 +852,11 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Redeem a redemption request. After the redemption request is created it needs to be redeemed. This will deduct the amount of the advocate unclaimed balance and move the request to the completed state.
+     * Redeem a redemption request. After the redemption request is created it needs to be redeemed. 
+     * This will deduct the amount of the advocate unclaimed balance and move the request to the completed state.
      *
-     * @param string $strAccountSlug The client account slug
-     * @param integer $intRedemptionRequestId The redemption request id
+     * @param string $strAccountSlug. The client account slug
+     * @param integer $intRedemptionRequestId. The redemption request id
      * @return string
      */
     public function patchRedemptionRequestRedemption($strAccountSlug, $intRedemptionRequestId) {
@@ -872,9 +873,9 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get bonuses redemption methods
+     * Get bonuses redemption methods.
      *
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAdvocateToken. The advocate token
      * @return string
      */
     public function getBonusesSummaryPerOriginReport($strAdvocateToken) {
@@ -895,7 +896,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get referrals summary by referral origin.
      *
-     * @param string $strAdvocateToken The advocate token
+     * @param string $strAdvocateToken. The advocate token
      * @return string
      */
     public function getReferralsSummaryPerOriginReport($strAdvocateToken) {
@@ -933,7 +934,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get bonuses redemption methods
+     * Get bonuses redemption methods.
      *
      * @return string
      */
@@ -952,7 +953,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get bonuses redemption method
+     * Get bonuses redemption method.
      *
      * @param string $strBonusRedemptionMethodSlug The bonuses redemption method slug
      * @return string
