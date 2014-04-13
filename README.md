@@ -1,6 +1,11 @@
 PHPClient
 =========
 
+[![Latest Stable Version](https://poser.pugx.org/raulfraile/ladybug-bundle/v/stable.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+[![Total Downloads](https://poser.pugx.org/raulfraile/ladybug-bundle/downloads.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+[![Latest Unstable Version](https://poser.pugx.org/raulfraile/ladybug-bundle/v/unstable.png)](https://packagist.org/packages/geniusreferrals/gr-api-php-client)
+
+
 # Installing Genius Referral PHP API via Composer
 
 The recommended way to install Genius Referral PHP API is through Composer.
