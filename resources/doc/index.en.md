@@ -108,7 +108,7 @@ with the proper username and api token assigned to you on Genius Referrals platf
 Unit testing
 ------------
 
-Genius Referral PHP API uses PHPUnit for unit testing. In order to run the unit tests, you'll first need to install the dependencies of the project using Composer: ```php composer.phar install --dev```. 
+The client uses PHPUnit for unit testing. In order to run the unit tests, you'll first need to install the dependencies of the project using Composer: ```php composer.phar install --dev```. 
 
 You can then run the tests using using the following command at the project root:
 ```
