@@ -7,63 +7,63 @@ La cual permite a sus clientes, a través de PHP, consumir los recursos de su RE
 Instalación:
 ------------
 
-The instalation process for this client in very simple and you can do it using different ways. 
+El proceso de instalación de este cliente en muy sencillo y puede hacerse de varias formas.
 
-### Using Composer
+### Usando Composer
 
-We recommend to use composer to install the client. 
+Recomendamos composer para intallar este cliente.
 
-#### 1- Install Composer
+#### 1- Installar Composer
 
-```cd``` into the directory of your project (eg: my_project) and run:
+```cd``` en el directorio de su projecto (ej: my_project) y ejecute:
 
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
 
-#### 2- Add the GRAPIPHPClient package as a dependency by running: 
+#### 2- Adicionar el packete GRAPIPHPClient como una dependencia ejecutando: 
 
 ```
 php composer.phar require geniusreferrals/gr-api-php-client:dev-master
 ```
 
-#### 3- Require Composer's autoloader
+#### 3- Requerir el cargador automático de Composer
 
 ```
 require_once '../vendor/autoload.php';
 ```
 
-### Using Git
+### Usando Git
 
-#### 1- Clone the repo 
+#### 1- Clonar el repositorio 
 
-If you don't want to use composer you can install the package by cloning the git repo. 
-```cd``` into the folder you want to save the package in and run: 
+Si usted no quiere usar composer, puede instalar el paquete clonando el repositorio. 
+```cd``` en la carpeta donde quiere clonar el paquete y ejecute: 
 
 ```
 git clone git@github.com:GeniusReferrals/GRAPIPHPClient.git
 ```
 
-#### 2- Require the client class on the class you want to use the client. 
+#### 2- Requerir el clase del cliente en la clase en la que queire usar el cliente. 
 
 ``` 
 require_once 'src/GeniusReferrals/GRPHPAPIClient.php';
 ```` 
 
-### Downloading the GRAPIPHPClient client
+### Descargando el cliente GRAPIPHPClient
 
-#### 1- Download the package
+#### 1- Descargar el paquete manualmente
 
-Download the zip client using this link [GRAPIPHPClient](https://github.com/GeniusReferrals/GRAPIPHPClient/archive/master.zip), 
-unzip the package and save it in a folder under your project directory. 
+Descargue el zip del cliente usando este vínculo [GRAPIPHPClient](https://github.com/GeniusReferrals/GRAPIPHPClient/archive/master.zip), 
+unzip el paquete y guardelo dentro del directorio de su projecto.
 
-#### 2- Require the client class on the class you want to use the client. 
+#### 2- Requerir el la clase del cliente en la clase donde desea usar el cliente. 
 
 ``` 
 require_once 'src/GeniusReferrals/GRPHPAPIClient.php';
 ```` 
 
-Using the Client
+Usando el Cliente
 ----------------
 
 ```
@@ -103,19 +103,16 @@ Hemos implementado varios ejemplos donde se muestra cómo utilizar la biblioteca
 
 Para probar los ejemplos debe sustituir los parameters YOUR_USERNAME y YOUR_API_TOKEN por su usuario y api token asignados en la plataforma Genius Referrals.
 
-Unit testing
-------------
+Pruebas de unidad
+-----------------
 
-Genius Referral PHP API uses PHPUnit for unit testing. In order to run the unit tests, you'll first need to install the dependencies of the project using Composer: ```php composer.phar install --dev```. 
+El cliente usa PHPUnit para implementar y probar pruebas de unidad. Para ejecutar las pruebas de unidad, primero tiene que instalar las dependencias del projecto usando Composer. Ejecute ```php composer.phar install --dev```. 
 
-You can then run the tests using using the following command at the project root:
+Luego puede ejecutar las pruebas usando el siguiente comando en el directorio root de su projecto:
 ```
 phpunit -c vendor/geniusreferrals/genius-api-php-client/
 ```
-
-If you are running the tests with xdebug enabled, you may encounter the following issue: ```Fatal error: Maximum function nesting level of '100' reached, aborting!```. This can be resolved by adding ```xdebug.max_nesting_level = 200``` to your php.ini file.
-
-
+Si esta ejecutando las pruebas con xdebug habilitado, puede encontrar el siguiente problema: ```Fatal error: Maximum function nesting level of '100' reached, aborting!```. Esto puede ser resuelto adicionando ```xdebug.max_nesting_level = 200``` a su archivo php.ini.
 
 Reportando un problema o nueva funcionalidad:
 ---------------------------------------------
