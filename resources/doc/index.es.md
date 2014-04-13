@@ -44,7 +44,7 @@ Si usted no quiere usar composer, puede instalar el paquete clonando el reposito
 git clone git@github.com:GeniusReferrals/GRAPIPHPClient.git
 ```
 
-#### 2- Requerir el clase del cliente en la clase en la que queire usar el cliente. 
+#### 2- Requerir el clase del cliente en la clase en la que desea usar el cliente. 
 
 ``` 
 require_once 'src/GeniusReferrals/GRPHPAPIClient.php';
