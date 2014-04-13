@@ -76,6 +76,9 @@ use GeniusReferrals\GRPHPAPIClient;
 // Create a new GRPHPAPIClient object
 $objGeniusReferralsAPIClient = new GRPHPAPIClient('YOUR_USERNAME', 'YOUR_API_TOKEN');
 
+//Test authentication
+$jsonResponse = $objGeniusReferralsAPIClient->testAuthentication();
+
 // Get the list of Genius Referrals client accounts
 $jsonResponse = $objGeniusReferralsAPIClient->getAccounts();
 
