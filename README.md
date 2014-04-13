@@ -21,7 +21,7 @@ Facebook, Twitter, Google +, Pinterest, Linkedin, Email and personal recommendat
 GRAPIPHPClient
 =====================
 
-GRAPIJavascriptClient es el cliente de PHP para consumir la RESTful API de la plataforma Genius Referrals.
+GRAPIPHPClient es el cliente de PHP para consumir la RESTful API de la plataforma Genius Referrals.
 
 Genius Referrals es una plataforma de marketing de referencia y marketing de boca a boca (word of mouse). La cual le permite a cualquier 
 empresa/persona con un sitio Web incrementar la adquisición de sus clientes usando técnicas de marketing de boca a boca a través de las redes
