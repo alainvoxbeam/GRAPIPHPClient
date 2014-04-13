@@ -1,6 +1,8 @@
 {
     "name": "geniusreferrals/gr-api-php-client",
     "description": "The Genius Referrals PHP client allows clients to consume the Genius Referrals RESTful API easily from php.",
+    "keywords": ["geniusreferrals", "referral marketing programs", "word of mouse", "promotion programs", "referral programs", "promotion campaigns", "referral campaigns", "marketing campaigns", "api"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Genius Referrals",
@@ -8,6 +10,9 @@
             "homepage": "http://www.geniusreferrals.com"
         }
     ],
+    "support": {
+        "issues": "https://github.com/GeniusReferrals/GRAPIPHPClient/issues"
+    },
     "autoload": {
         "psr-0": {
             "GeniusReferrals": "src/",
@@ -22,5 +27,10 @@
         "guzzle/guzzle": "~3.7",
         "devster/guzzle-wsse-plugin": "~1.0",
         "phpunit/phpunit": "3.7.*"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
