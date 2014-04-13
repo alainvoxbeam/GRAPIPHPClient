@@ -99,7 +99,7 @@ $intResponseCode = $objGeniusReferralsAPIClient->getResponseCode();
 
 ### Más ejemplos
 
-Hemos implementado varios ejemplos donde se muestra cómo utilizar la biblioteca. Por favor revise [Ejamplos de integración](examples.en.md).
+Hemos implementado varios ejemplos donde se muestra cómo utilizar la biblioteca. Por favor revise [Ejemplos de integración](examples.en.md).
 
 Para probar los ejemplos debe sustituir los parameters YOUR_USERNAME y YOUR_API_TOKEN por su usuario y api token asignados en la plataforma Genius Referrals.
 
@@ -110,7 +110,7 @@ El cliente usa PHPUnit para implementar y probar pruebas de unidad. Para ejecuta
 
 Luego puede ejecutar las pruebas usando el siguiente comando en el directorio root de su projecto:
 ```
-phpunit -c vendor/geniusreferrals/genius-api-php-client/
+phpunit -c vendor/geniusreferrals/gr-api-php-client/
 ```
 Si esta ejecutando las pruebas con xdebug habilitado, puede que tenga el siguiente problema: ```Fatal error: Maximum function nesting level of '100' reached, aborting!```. Esto puede ser resuelto adicionando ```xdebug.max_nesting_level = 200``` a su archivo php.ini.
 
