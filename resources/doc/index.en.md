@@ -52,7 +52,7 @@ require_once 'src/GeniusReferrals/GRPHPAPIClient.php';
 
 ### Downloading the GRAPIPHPClient client
 
-#### 1- Download the package
+#### 1- Download the package manually
 
 Download the zip client using this link [GRAPIPHPClient](https://github.com/GeniusReferrals/GRAPIPHPClient/archive/master.zip), 
 unzip the package and save it in a folder under your project directory. 
