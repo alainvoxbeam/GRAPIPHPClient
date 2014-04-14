@@ -62,7 +62,7 @@ interface ApiClientInterface {
 
     public function getBonusesTrace($strAccountSlug, $intTraceId);
 
-    public function getCampains($strAccountSlug, $intPage, $intLimit, $strFilter, $strSort);
+    public function getCampaigns($strAccountSlug, $intPage, $intLimit, $strFilter, $strSort);
 
     public function getCampaign($strAccountSlug, $strCampaignSlug);
 

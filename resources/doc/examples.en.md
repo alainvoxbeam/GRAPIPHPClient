@@ -3,10 +3,9 @@ GRAPIPHPClient Examples
 
 ``` 
 <?php
-
 $objGeniusReferralsAPIClient = new GRPHPAPIClient('YOUR_USERNAME', 'YOUR_API_PASSWORD');
 
-//getRoot
+//getApiUrl
 $strResponse = $objGeniusReferralsAPIClient->getApiUrl();
 return $strResponse;
 
@@ -33,7 +32,10 @@ $aryResponse = json_decode($jsonResponse);
 return $aryResponse;
 
 //postAdvocate
-$aryAdvocate = array('advocate' => array("name" => "Jonh", "lastname" => "Smith", "email" => "jonh@email.com", "payout_threshold" => 10));
+$aryAdvocate = array('advocate' => array("name" => "Jonh",
+        "lastname" => "Smith",
+        "email" => "jonh@email.com",
+        "payout_threshold" => 10));
 $objGeniusReferralsAPIClient->postAdvocate('example-com', $aryAdvocate);
 return $objGeniusReferralsAPIClient->getResponseCode();
 
@@ -43,7 +45,10 @@ $aryResponse = json_decode($jsonResponse);
 return $aryResponse;
 
 //patchAdvocate
-$aryAdvocate = array('advocate' => array("name" => "Jonh", "lastname" => "Smith", "email" => "jonh@email.com", "payout_threshold" => 10));
+$aryAdvocate = array('advocate' => array("name" => "Jonh",
+        "lastname" => "Smith",
+        "email" => "jonh@email.com",
+        "payout_threshold" => 10));
 $objGeniusReferralsAPIClient->patchAdvocate('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', $aryAdvocate);
 return $objGeniusReferralsAPIClient->getResponseCode();
 
@@ -54,7 +59,9 @@ $aryResponse = json_decode($jsonResponse);
 return $aryResponse;
 
 //postAdvocatePaymentMethod
-$aryPaymentMethod = array("advocate_payment_method" => array("username" => "advocate@email.com", "description" => "My main paypal account", "is_active" => true));
+$aryPaymentMethod = array("advocate_payment_method" => array("username" => "advocate@email.com",
+        "description" => "My main paypal account",
+        "is_active" => true));
 $objGeniusReferralsAPIClient->postAdvocatePaymentMethod('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', $aryPaymentMethod);
 return $objGeniusReferralsAPIClient->getResponseCode();
 
@@ -64,7 +71,9 @@ $aryResponse = json_decode($jsonResponse);
 return $aryResponse;
 
 //putAdvocatePaymentMethod
-$aryPaymentMethod = array("advocate_payment_method" => array("username" => "advocate@email.com", "description" => "My main paypal account", "is_active" => true));
+$aryPaymentMethod = array("advocate_payment_method" => array("username" => "advocate@email.com",
+        "description" => "My main paypal account",
+        "is_active" => true));
 $objGeniusReferralsAPIClient->putAdvocatePaymentMethod('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', 2, $aryPaymentMethod);
 return $objGeniusReferralsAPIClient->getResponseCode();
 
@@ -81,9 +90,9 @@ return $aryResponse;
 
 //postReferral
 $aryReferral = array("referral" => array("referred_advocate_token" => "8b3856077b4243700c15d3c75d1cf9866253f643",
-                "referral_origin_slug" => "facebook-share",
-                "campaign_slug" => "get-10-of-for-90-days",
-                "http_referer" => "http://www.geniusreferrals.com"));
+        "referral_origin_slug" => "facebook-share",
+        "campaign_slug" => "get-10-of-for-90-days",
+        "http_referer" => "http://www.geniusreferrals.com"));
 $objGeniusReferralsAPIClient->postReferral('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', $aryReferral);
 return $objGeniusReferralsAPIClient->getResponseCode();
 
@@ -95,9 +104,9 @@ return $aryResponse;
 
 //postBonuses
 $aryBonus = array("bonus" => array("advocate_token" => "8b3856077b4243700c15d3c75d1cf9866253f643",
-                "reference" => "HSY7292D00",
-                "amount_of_payments" => 3,
-                "payment_amount" => 10));
+        "reference" => "HSY7292D00",
+        "amount_of_payments" => 3,
+        "payment_amount" => 10));
 $objGeniusReferralsAPIClient->postBonuses('example-com', $aryBonus);
 return $objGeniusReferralsAPIClient->getResponseCode();
 
@@ -107,7 +116,10 @@ $aryResponse = json_decode($jsonResponse);
 return $aryResponse;
 
 //getBonusesCheckup
-$aryBonusesCheckup = array("advocate_token" => "7c4ae87701ef6e6c9ab64941215da6b1f90f5c7a","reference" => "HSY7292D00", "amount_of_payments" => 3, "payment_amount" => 10);
+$aryBonusesCheckup = array("advocate_token" => "7c4ae87701ef6e6c9ab64941215da6b1f90f5c7a",
+    "reference" => "HSY7292D00",
+    "amount_of_payments" => 3,
+    "payment_amount" => 10);
 $jsonResponse = $objGeniusReferralsAPIClient->getBonusesCheckup('example-com', $aryBonusesCheckup);
 $aryResponse = json_decode($jsonResponse);
 return $aryResponse;
@@ -142,12 +154,12 @@ return $aryResponse;
 
 //postRedemptionRequest
 $$aryRedemptionRequest = array("redemption_request" => array("advocate_token" => "07c159102f66a63b18d4da39bf91b06bacb7db8d",
-                "request_status_slug" => "processing",
-                "request_action_slug" => "goods",
-                "currency_code" => "USD",
-                "amount" => 50,
-                "description" => "description",
-                "advocates_paypal_username" => "alain@mail.com"));
+        "request_status_slug" => "processing",
+        "request_action_slug" => "goods",
+        "currency_code" => "USD",
+        "amount" => 50,
+        "description" => "description",
+        "advocates_paypal_username" => "alain@mail.com"));
 $objGeniusReferralsAPIClient->postRedemptionRequest('example-com', $aryRedemptionRequest);
 return $objGeniusReferralsAPIClient->getResponseCode();
 
