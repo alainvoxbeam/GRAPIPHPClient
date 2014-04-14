@@ -18,12 +18,31 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->objWebClient = new GRPHPAPIClient('YOUR_USERNAME', 'YOUR_API_TOKEN');
     }
 
+    /*
+     * Testing getRoot
+     */
+
     public function testGetRoot() {
 
         $this->objWebClient->getRoot();
 
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
+
+    /*
+     * Testing testAuthentication
+     */
+
+    public function testAuthentication() {
+
+        $this->objWebClient->testAuthentication();
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getAccounts
+     */
 
     public function testGetAccounts() {
 
@@ -32,12 +51,20 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
+    /*
+     * Testing getAccount
+     */
+
     public function testGetAccount() {
 
         $this->objWebClient->getAccount('example-com');
 
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
+
+    /*
+     * Testing getAdvocates
+     */
 
     public function testGetAdvocates() {
 
@@ -46,22 +73,22 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
-    public function testPostAdvocate() {
+    /*
+     * Testing getAdvocate
+     */
 
-        $aryAdvocate = array('advocate' => array("name" => "Jonh", "lastname" => "Smith", "email" => "jonh@email.com", "payout_threshold" => 10));
-        $objResponse = $this->objWebClient->postAdvocate('example-com', $aryAdvocate);
-        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+    public function testGetAdvocate() {
 
-        $strLocation = $objResponse->getLocation();
+        $jsonResponse = $this->objWebClient->getAdvocates('example-com', 1, 1);
 
-        $arrHeaders = $this->getHeaders();
+        $this->objWebClient->getAdvocate('example-com', json_decode($jsonResponse)->data->results[0]->token);
 
-        $objClient = $this->objWebClient->getWebClient();
-        $objRequest = $objClient->get($strLocation, $arrHeaders);
-        $objResponse = $objRequest->send();
-
-        $this->assertEquals($objResponse->getStatusCode(), 200);
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
+
+    /*
+     * Testing getAdvocatePaymentMethods
+     */
 
     public function testGetAdvocatePaymentMethods() {
 
@@ -70,21 +97,22 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
-    public function testPostAdvocatePaymentMethod() {
+    /*
+     * Testing getAdvocatePaymentMethod
+     */
 
-        $aryPaymentMethod = array("advocate_payment_method" => array("username" => "advocate@email.com", "description" => "My main paypal account", "is_active" => true));
-        $objResponse = $this->objWebClient->postAdvocatePaymentMethod('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', $aryPaymentMethod);
-        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+    public function testGetAdvocatePaymentMethod() {
 
-        $strLocation = $objResponse->getLocation();
+        $jsonResponse = $this->objWebClient->getAdvocatePaymentMethods('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', 1, 1);
 
-        $arrHeaders = $this->getHeaders();
+        $this->objWebClient->getAdvocatePaymentMethod('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', json_decode($jsonResponse)->data->results[0]->id);
 
-        $objClient = $this->objWebClient->getWebClient();
-        $objRequest = $objClient->get($strLocation, $arrHeaders);
-        $objResponse = $objRequest->send();
-        $this->assertEquals($objResponse->getStatusCode(), 200);
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
+
+    /*
+     * Testing getReferrals
+     */
 
     public function testGetReferrals() {
 
@@ -93,25 +121,22 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
-    public function testPostReferral() {
+    /*
+     * Testing getReferral
+     */
 
-        $aryReferral = array("referral" => array("referred_advocate_token" => "8b3856077b4243700c15d3c75d1cf9866253f643",
-                "referral_origin_slug" => "facebook-share",
-                "campaign_slug" => "get-10-of-for-90-days",
-                "http_referer" => "http://www.geniusreferrals.com"));
-        $objResponse = $this->objWebClient->postReferral('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', $aryReferral);
-        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+    public function testGetReferral() {
 
-        $strLocation = $objResponse->getLocation();
+        $jsonResponse = $this->objWebClient->getReferrals('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', 1, 1);
 
-        $arrHeaders = $this->getHeaders();
+        $this->objWebClient->getReferral('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', json_decode($jsonResponse)->data->results[0]->id);
 
-        $objClient = $this->objWebClient->getWebClient();
-        $objRequest = $objClient->get($strLocation, $arrHeaders);
-        $objResponse = $objRequest->send();
-
-        $this->assertEquals($objResponse->getStatusCode(), 200);
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
+
+    /*
+     * Testing getBonuses
+     */
 
     public function testGetBonuses() {
 
@@ -120,32 +145,22 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
-    public function testPostBonus() {
+    /*
+     * Testing getBonus
+     */
 
-        $aryBonus = array("bonus" => array("advocate_token" => "8b3856077b4243700c15d3c75d1cf9866253f643",
-                "reference" => "HSY7292D00",
-                "amount_of_payments" => 3,
-                "payment_amount" => 10));
-        $objResponse = $this->objWebClient->postBonuses('example-com', $aryBonus);
-        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+    public function testGetBonus() {
 
-        $strLocation = $objResponse->getLocation();
+        $jsonResponse = $this->objWebClient->getBonuses('example-com', 1, 1);
 
-        $arrHeaders = $this->getHeaders();
+        $this->objWebClient->getBonus('example-com', json_decode($jsonResponse)->data->results[0]->id);
 
-        $objClient = $this->objWebClient->getWebClient();
-        $objRequest = $objClient->get($strLocation, $arrHeaders);
-        $objResponse = $objRequest->send();
-
-        $this->assertEquals($objResponse->getStatusCode(), 200);
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
-//    public function testGetBonusesCheckup() {
-//        
-//        $this->objWebClient->getBonusesCheckup('example-com');
-//
-//        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-//    }
+    /*
+     * Testing getBonusesTraces
+     */
 
     public function testGetBonusesTraces() {
 
@@ -154,19 +169,33 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
-//    public function testGetBonusesTrace() {
-//    
-//        $this->objWebClient->getBonusesTrace('example-com', 64);
-//
-//        $this->assertEquals($this->objWebClient->getStatusCode(), 200);
-//    }
+    /*
+     * Testing getBonusesTrace
+     */
 
-    public function testGetCampains() {
+    public function testGetBonusesTrace() {
 
-        $this->objWebClient->getCampains('example-com');
+        $jsonResponse = $this->objWebClient->getBonusesTraces('example-com');
+
+        $this->objWebClient->getBonusesTrace('example-com', json_decode($jsonResponse)->data->results[0]->id);
+
+        $this->assertEquals($this->objWebClient->getStatusCode(), 200);
+    }
+
+    /*
+     * Testing getCampaigns
+     */
+
+    public function testGetCampaigns() {
+
+        $this->objWebClient->getCampaigns('example-com');
 
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
+
+    /*
+     * Testing getCampaign
+     */
 
     public function testGetCampaign() {
 
@@ -175,12 +204,280 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
 
+    /*
+     * Testing getRedemptionRequests
+     */
+
     public function testGetRedemptionRequests() {
 
         $this->objWebClient->getRedemptionRequests('example-com');
 
         $this->assertEquals($this->objWebClient->getResponseCode(), 200);
     }
+
+    /*
+     * Testing getRedemptionRequests
+     */
+
+    public function testGetRedemptionRequest() {
+
+        $jsonResponse = $this->objWebClient->getRedemptionRequests('example-com', 1, 1);
+
+        $this->objWebClient->getRedemptionRequest('example-com', json_decode($jsonResponse)->data->results[0]->id);
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getBonusesSummaryPerOriginReport
+     */
+
+    public function testGetBonusesSummaryPerOriginReport() {
+
+        $this->objWebClient->getBonusesSummaryPerOriginReport('07c159102f66a63b18d4da39bf91b06bacb7db8d');
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getReferralsSummaryPerOriginReport
+     */
+
+    public function testGetReferralsSummaryPerOriginReport() {
+
+        $this->objWebClient->getReferralsSummaryPerOriginReport('07c159102f66a63b18d4da39bf91b06bacb7db8d');
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getBonusesRedemptionMethods
+     */
+
+    public function testGetBonusesRedemptionMethods() {
+
+        $this->objWebClient->getBonusesRedemptionMethods();
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getBonusRedemptionMethod
+     */
+
+    public function testGetBonusesRedemptionMethod() {
+
+        $this->objWebClient->getBonusRedemptionMethod('auto-into-credit');
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getCurrencies
+     */
+
+    public function testGetCurrencies() {
+
+        $this->objWebClient->getCurrencies();
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getCurrency
+     */
+
+    public function testGetCurrency() {
+
+        $this->objWebClient->getCurrency('USD');
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getRedemptionRequestsActions
+     */
+
+    public function testGetRedemptionRequestsActions() {
+
+        $this->objWebClient->getRedemptionRequestsActions();
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getRedemptionRequestAction
+     */
+
+    public function testGetRedemptionRequestsAction() {
+
+        $this->objWebClient->getRedemptionRequestAction('pay-out');
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getRedemptionRequestStatuses
+     */
+
+    public function testGetRedemptionRequestStatuses() {
+
+        $this->objWebClient->getRedemptionRequestStatuses();
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getRedemptionRequestStatus
+     */
+
+    public function testGetRedemptionRequestStatus() {
+
+        $this->objWebClient->getRedemptionRequestStatus('requested');
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getBonusesCheckup
+     */
+
+//    public function testGetBonusesCheckup() {
+//
+//        $aryBonus = array("advocate_token" => "07c159102f66a63b18d4da39bf91b06bacb7db8d",
+//            "reference" => "HSY7292D00",
+//            "amount_of_payments" => 3,
+//            "payment_amount" => 10);
+//        $this->objWebClient->getBonusesCheckup('example-com', $aryBonus);
+//
+//        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+//    }
+
+    /*
+     * Testing postAdvocate
+     */
+
+//    public function testPostAdvocate() {
+//
+//        $aryAdvocate = array('advocate' => array("name" => "Jonh", "lastname" => "Smith", "email" => "jonh@email.com", "payout_threshold" => 10));
+//        $objResponse = $this->objWebClient->postAdvocate('example-com', $aryAdvocate);
+//        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+//
+//        $strLocation = $objResponse->getLocation();
+//
+//        $arrHeaders = $this->getHeaders();
+//
+//        $objClient = $this->objWebClient->getWebClient();
+//        $objRequest = $objClient->get($strLocation, $arrHeaders);
+//        $objResponse = $objRequest->send();
+//
+//        $this->assertEquals($objResponse->getStatusCode(), 200);
+//    }
+
+    /*
+     * Testing patchAdvocate
+     */
+
+//    public function testPatchAdvocate() {
+//
+//        $aryAdvocate = array("name" => "Jonh",
+//            "lastname" => "Smith",
+//            "email" => "jonh@email.com",
+//            "payout_threshold" => 10,
+//            "advocate_referrer_token" => '07c159102f66a63b18d4da39bf91b06bacb7db8d');
+//        $objResponse = $this->objWebClient->patchAdvocate('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', $aryAdvocate);
+//
+//        $this->assertEquals($this->objWebClient->getResponseCode(), 204);
+//    }
+
+    /*
+     * Testing postAdvocatePaymentMethod
+     */
+
+//    public function testPostAdvocatePaymentMethod() {
+//
+//        $aryPaymentMethod = array("advocate_payment_method" => array("username" => "advocate@email.com",
+//                "description" => "My main paypal account",
+//                "is_active" => true));
+//        $objResponse = $this->objWebClient->postAdvocatePaymentMethod('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', $aryPaymentMethod);
+//        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+//
+//        $strLocation = $objResponse->getLocation();
+//
+//        $arrHeaders = $this->getHeaders();
+//
+//        $objClient = $this->objWebClient->getWebClient();
+//        $objRequest = $objClient->get($strLocation, $arrHeaders);
+//        $objResponse = $objRequest->send();
+//        $this->assertEquals($objResponse->getStatusCode(), 200);
+//    }
+
+    /*
+     * Testing putAdvocatePaymentMethod
+     */
+
+//    public function testPutAdvocatePaymentMethod() {
+//
+//        $jsonResponse = $this->objWebClient->getAdvocatePaymentMethods('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', 1, 1);
+//        $aryPaymentMethod = array("advocate_payment_method" => array("username" => "advocate@email.com",
+//                "description" => "My main paypal account",
+//                "is_active" => true));
+//        $objResponse = $this->objWebClient->putAdvocatePaymentMethod('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', json_decode($jsonResponse)->data->results[0]->id, $aryPaymentMethod);
+//
+//        $this->assertEquals($this->objWebClient->getResponseCode(), 204);
+//    }
+
+    /*
+     * Testing postReferral
+     */
+
+//    public function testPostReferral() {
+//
+//        $aryReferral = array("referral" => array("referred_advocate_token" => "8b3856077b4243700c15d3c75d1cf9866253f643",
+//                "referral_origin_slug" => "facebook-share",
+//                "campaign_slug" => "get-10-of-for-90-days",
+//                "http_referer" => "http://www.geniusreferrals.com"));
+//        $objResponse = $this->objWebClient->postReferral('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d', $aryReferral);
+//        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+//
+//        $strLocation = $objResponse->getLocation();
+//
+//        $arrHeaders = $this->getHeaders();
+//
+//        $objClient = $this->objWebClient->getWebClient();
+//        $objRequest = $objClient->get($strLocation, $arrHeaders);
+//        $objResponse = $objRequest->send();
+//
+//        $this->assertEquals($objResponse->getStatusCode(), 200);
+//    }
+
+    /*
+     * Testing postBonuses
+     */
+
+//    public function testPostBonus() {
+//
+//        $aryBonus = array("bonus" => array("advocate_token" => "8b3856077b4243700c15d3c75d1cf9866253f643",
+//                "reference" => "HSY7292D00",
+//                "amount_of_payments" => 3,
+//                "payment_amount" => 10));
+//        $objResponse = $this->objWebClient->postBonuses('example-com', $aryBonus);
+//        $this->assertEquals($this->objWebClient->getResponseCode(), 201, false);
+//
+//        $strLocation = $objResponse->getLocation();
+//
+//        $arrHeaders = $this->getHeaders();
+//
+//        $objClient = $this->objWebClient->getWebClient();
+//        $objRequest = $objClient->get($strLocation, $arrHeaders);
+//        $objResponse = $objRequest->send();
+//
+//        $this->assertEquals($objResponse->getStatusCode(), 200);
+//    }
+
+    /*
+     * Testing postRedemptionRequest
+     */
 
 //    public function testPostRedemptionRequest() {
 //
@@ -205,81 +502,18 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
 //        $this->assertEquals($objResponse->getStatusCode(), 200);
 //    }
 
-    public function testGetBonusesSummaryPerOriginReport() {
+    /*
+     * Testing patchRedemptionRequestRedemption
+     */
 
-        $this->objWebClient->getBonusesSummaryPerOriginReport('07c159102f66a63b18d4da39bf91b06bacb7db8d');
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-    public function testGetReferralsSummaryPerOriginReport() {
-
-        $this->objWebClient->getReferralsSummaryPerOriginReport('07c159102f66a63b18d4da39bf91b06bacb7db8d');
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testAuthentication() {
-
-        $this->objWebClient->testAuthentication();
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testGetBonusesRedemptionMethods() {
-
-        $this->objWebClient->getBonusesRedemptionMethods();
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testGetBonusesRedemptionMethod() {
-
-        $this->objWebClient->getBonusRedemptionMethod('auto-into-credit');
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testGetCurrencies() {
-
-        $this->objWebClient->getCurrencies();
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testGetCurrency() {
-
-        $this->objWebClient->getCurrency('USD');
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testGetRedemptionRequestsActions() {
-
-        $this->objWebClient->getRedemptionRequestsActions();
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testGetRedemptionRequestsAction() {
-
-        $this->objWebClient->getRedemptionRequestAction('pay-out');
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testGetRedemptionRequestStatuses() {
-
-        $this->objWebClient->getRedemptionRequestStatuses();
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
-
-    public function testGetRedemptionRequestStatus() {
-
-        $this->objWebClient->getRedemptionRequestStatus('requested');
-
-        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
-    }
+//    public function testPatchRedemptionRequestRedemption() {
+//
+//        $jsonResponse = $this->objWebClient->getRedemptionRequests('example-com', 1, 1, 'request_status_slug::processing');
+//
+//        $objResponse = $this->objWebClient->patchRedemptionRequestRedemption('example-com', json_decode($jsonResponse)->data->results[0]->id);
+//
+//        $this->assertEquals($objResponse->getStatusCode(), 204);
+//    }
 
     private function getHeaders() {
         $arrHeaders = array(

@@ -725,7 +725,7 @@ class GRPHPAPIClient implements ApiClientInterface {
      *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
-    public function getCampains($strAccountSlug, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
+    public function getCampaigns($strAccountSlug, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
         $objWebClient = $this->getWebClient();
 
         $strUri = $this->getApiUrl() . '/accounts/' . $strAccountSlug . '/campaigns';

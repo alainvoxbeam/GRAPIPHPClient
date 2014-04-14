@@ -6,7 +6,7 @@ GRAPIPHPClient Examples
 
 $objGeniusReferralsAPIClient = new GRPHPAPIClient('YOUR_USERNAME', 'YOUR_API_PASSWORD');
 
-//getRoot
+//getApiUrl
 $strResponse = $objGeniusReferralsAPIClient->getApiUrl();
 return $strResponse;
 
