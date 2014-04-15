@@ -92,21 +92,20 @@ class GRPHPAPIClient implements ApiClientInterface {
      * @param string $strUri. API URI
      * @param integer page.  The current page, default is 1.
      * @param integer $intLimit. Maximum number of results to return in the response.
-     * @param string $strFilter. Allowed fields: name. Use the following delimiters to build your
-     *                          filters params. The vertical bar ('|') to separate individual filter 
-     *                          phrases and a double colon ('::') to separate the names and values. 
-     *                          The delimiter of the double colon (':') separates the property name 
-     *                          from the comparison value, enabling the comparison value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort. Allowed fields: name, created. Use sort query-string parameter that 
-     *                        contains a delimited set of property names. For each property name, sort 
-     *                        in ascending order, and for each property prefixed with a dash ('-') sort 
-     *                        in descending order. Separate each property name with a vertical bar ('|'),
-     *                        which is consistent with the separation of the name\/value pairs in 
-     *                        filtering, above. For example, if we want to retrieve users in order of
-     *                        their last name (ascending), first name (ascending) and hire date 
-     *                        (descending), the request might look like this 
-     *                        www.example.com\/users?sort='last_name|first_name|-hire_date'
+     * @param string $strFilter. Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Use sort query-string parameter that contains a delimited set of property names. 
+     *                           For each property name, sort in ascending order, and for each property prefixed with a dash ('-') 
+     *                           sort in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function addCommonFilters($strUri, $intPage = null, $intLimit = null, $strFilter = null, $strSort = null) {
@@ -154,18 +153,23 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get the list of client accounts.
      *
-     * @param integer page.  The current page, default is 1.
+     * @param integer $intPage.  The current page, default is 1.
      * @param integer $intLimit. Maximum number of results to return in the response.
-     * @param string $strFilter. Allowed fields: name. Use the following delimiters to build your filters params. The vertical bar ('|') to separate 
-     *                          individual filter phrases and a double colon ('::') to separate the names and values. The delimiter of the double 
-     *                          colon (':') separates the property name from the comparison value, enabling the comparison value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort.   Allowed fields: name, created. Use sort query-string parameter that contains a delimited set of property names. 
-     *                          For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending order. 
-     *                          Separate each property name with a vertical bar ('|'), which is consistent with the separation of the name\/value pairs in 
-     *                          filtering, above. For example, if we want to retrieve users in order of their last name (ascending), first name (ascending) 
-     *                          and hire date (descending), the request might look like this 
-     *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
+     * @param string $strFilter. Allowed fields: name. Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Allowed fields: name, created. Use sort query-string parameter that 
+     *                           contains a delimited set of property names. For each property name, sort 
+     *                           in ascending order, and for each property prefixed with a dash ('-') sort 
+     *                           in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function getAccounts($intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
@@ -184,7 +188,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get a  client account.
+     * Get an account by a given slug.
      *
      * @param string $strAccountSlug. The client account slug
      * @return string
@@ -207,19 +211,24 @@ class GRPHPAPIClient implements ApiClientInterface {
      * Get the list of  advocates.
      *
      * @param string $strAccountSlug. The client account slug
-     * @param integer page.  The current page, default is 1.
+     * @param integer $intPage.  The current page, default is 1.
      * @param integer $intLimit. Maximum number of results to return in the response.
-     * @param string $strFilter. Allowed fields: name, lastname, email, bonus_exchange_method_slug, campaign_slug, from, to, created. 
-     *                          Use the following delimiters to build your filters params. The vertical bar ('|') to separate individual filter phrases 
-     *                          and a double colon ('::') to separate the names and values. The delimiter of the double colon (':') separates the 
-     *                          property name from the comparison value, enabling the comparison value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort.   Allowed fields: name, lastname, email , created. Use sort query-string parameter that contains a delimited set of property 
-     *                          names. For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in 
-     *                          descending order. Separate each property name with a vertical bar ('|'), which is consistent with the separation of the 
-     *                          name\/value pairs in filtering, above. For example, if we want to retrieve users in order of their last name (ascending), 
-     *                          first name (ascending) and hire date (descending), the request might look like this 
-     *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
+     * @param string $strFilter. Allowed fields: name, lastname, email, bonus_exchange_method_slug, campaign_slug, from, to, created.
+     *                           Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Allowed fields: name, lastname, email, created. Use sort query-string parameter that 
+     *                           contains a delimited set of property names. For each property name, sort 
+     *                           in ascending order, and for each property prefixed with a dash ('-') sort 
+     *                           in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function getAdvocates($strAccountSlug, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
@@ -330,17 +339,21 @@ class GRPHPAPIClient implements ApiClientInterface {
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
-     * @param string $strFilter. Allowed fields: username, is_active. Use the following delimiters to build your filters params. 
-     *                          The vertical bar ('|') to separate individual filter phrases and a double colon ('::') to separate the names and values. 
-     *                          The delimiter of the double colon (':') separates the property name from the comparison value, enabling the comparison 
-     *                          value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort.   Allowed fields: username, created. Use sort query-string parameter that contains a delimited set of property names. 
-     *                          For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending order. 
-     *                          Separate each property name with a vertical bar ('|'), which is consistent with the separation of the name\/value pairs in 
-     *                          filtering, above. For example, if we want to retrieve users in order of their last name (ascending), first name (ascending) 
-     *                          and hire date (descending), the request might look like this 
-     *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
+     * @param string $strFilter. Allowed fields: username, is_active. Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Allowed fields: username, created. Use sort query-string parameter that 
+     *                           contains a delimited set of property names. For each property name, sort 
+     *                           in ascending order, and for each property prefixed with a dash ('-') sort 
+     *                           in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function getAdvocatePaymentMethods($strAccountSlug, $strAdvocateToken, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
@@ -447,17 +460,21 @@ class GRPHPAPIClient implements ApiClientInterface {
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
-     * @param string $strFilter. Allowed fields: url, referral_origin_slug, created. Use the following delimiters to build your filters params. 
-     *                          The vertical bar ('|') to separate individual filter phrases and a double colon ('::') to separate the names and values. 
-     *                          The delimiter of the double colon (':') separates the property name from the comparison value, enabling the comparison 
-     *                          value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort.   Allowed fields: created. Use sort query-string parameter that contains a delimited set of property names. 
-     *                          For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending order. 
-     *                          Separate each property name with a vertical bar ('|'), which is consistent with the separation of the name\/value pairs 
-     *                          in filtering, above. For example, if we want to retrieve users in order of their last name (ascending), first name (ascending) 
-     *                          and hire date (descending), the request might look like this 
-     *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
+     * @param string $strFilter. Allowed fields: url, referral_origin_slug, created. Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Allowed fields: created. Use sort query-string parameter that 
+     *                           contains a delimited set of property names. For each property name, sort 
+     *                           in ascending order, and for each property prefixed with a dash ('-') sort 
+     *                           in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function getReferrals($strAccountSlug, $strAdvocateToken, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
@@ -534,18 +551,21 @@ class GRPHPAPIClient implements ApiClientInterface {
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
-     * @param string $strFilter. Allowed fields: name, lastname, email, campaign_slug, from, to, created. Use the following delimiters to build your 
-     *                          filters params. The vertical bar ('|') to separate individual filter phrases and a double colon ('::') to separate 
-     *                          the names and values. The delimiter of the double colon (':') separates the property name from the comparison value, 
-     *                          enabling the comparison value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort.   Allowed fields: name, lastname, email, created. Use sort query-string parameter that contains a delimited set of property 
-     *                          names. For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending 
-     *                          order. Separate each property name with a vertical bar ('|'), which is consistent with the separation of 
-     *                          the name\/value pairs in filtering, above. 
-     *                          For example, if we want to retrieve users in order of their last name (ascending), first name (ascending) 
-     *                          and hire date (descending), the request might look like this 
-     *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
+     * @param string $strFilter. Allowed fields: name, lastname, email, campaign_slug, from, to, created. Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Allowed fields: name, lastname, email, created. Use sort query-string parameter that 
+     *                           contains a delimited set of property names. For each property name, sort 
+     *                           in ascending order, and for each property prefixed with a dash ('-') sort 
+     *                           in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function getBonuses($strAccountSlug, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
@@ -565,13 +585,13 @@ class GRPHPAPIClient implements ApiClientInterface {
 
     /**
      * Create a new bonus for a given advocate token. The system processes the advocate and creates a bonus for the 
-     * advocate's referrer if is needed. 
-     * All restrictions set on the campaigns for this account will be check out before giving the bonus to the 
+     * advocate's referrer if is needed. All restrictions set on the campaigns for this account will be check out before giving the bonus to the 
      * advocate's referrer.
      * 
      * @param string $strAccountSlug. The client account slug
      * @param array $arrParams
-     * Request Format Not all parameters in the content of the request are mandatory. Parameters amount_of_payments and payment_amount are optional.
+     * Request Format Not all parameters in the content of the request are mandatory. 
+     * Parameters amount_of_payments and payment_amount are optional.
      * {
      *       "bonus":{
      *           "advocate_token":"7c4ae87701ef6e6c9ab64941215da6b1f90f5c7a",
@@ -622,8 +642,6 @@ class GRPHPAPIClient implements ApiClientInterface {
      *
      * @param string $strAccountSlug. The client account slug
      * @param array $arrParams
-     * Request Format Not all parameters in the content of the request are mandatory. 
-     * Parameters amount_of_payments and payment_amount are optional.
      * {
      *     "advocate_token":"7c4ae87701ef6e6c9ab64941215da6b1f90f5c7a",
      *     "reference": "HSY7292D00",
@@ -655,17 +673,22 @@ class GRPHPAPIClient implements ApiClientInterface {
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
-     * @param string $strFilter. Allowed fields: reference, result, bonus_amount, advocate_token, advocate_referrer_token, campaign_slug, from, to, 
-     *                          created. Use the following delimiters to build your filters params. The vertical bar ('|') to separate individual 
-     *                          filter phrases and a double colon ('::') to separate the names and values. The delimiter of the double colon (':') 
-     *                          separates the property name from the comparison value, enabling the comparison value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort.   Allowed fields: created. Use sort query-string parameter that contains a delimited set of property names. 
-     *                          For each property name, sort in ascending order, and for each property prefixed with a dash ('-') sort in descending order. 
-     *                          Separate each property name with a vertical bar ('|'), which is consistent with the separation of the name\/value pairs 
-     *                          in filtering, above. For example, if we want to retrieve users in order of their last name (ascending), 
-     *                          first name (ascending) and hire date (descending), the request might look like this 
-     *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
+     * @param string $strFilter. Allowed fields: reference, result, bonus_amount, advocate_token, advocate_referrer_token, campaign_slug, from, to, created. 
+     *                           Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Allowed fields: created. Use sort query-string parameter that 
+     *                           contains a delimited set of property names. For each property name, sort 
+     *                           in ascending order, and for each property prefixed with a dash ('-') sort 
+     *                           in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function getBonusesTraces($strAccountSlug, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
@@ -712,17 +735,21 @@ class GRPHPAPIClient implements ApiClientInterface {
 
      * @param integer $intLimit. Maximum number of results to return in the response.
      * @param string $strFilter. Allowed fields: name, description, start_date, end_date, is_active (true|false), created. 
-     *                          Use the following delimiters to build your filters params. The vertical bar ('|') to separate individual filter 
-     *                          phrases and a double colon ('::') to separate the names and values. The delimiter of the double colon (':') 
-     *                          separates the property name from the comparison value, enabling the comparison value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort.   Allowed fields: campaign_slug, created, start_date, end_date, is_active. Use sort query-string parameter that contains 
-     *                          a delimited set of property names. For each property name, sort in ascending order, and for each property prefixed 
-     *                          with a dash ('-') sort in descending order. Separate each property name with a vertical bar ('|'), 
-     *                          which is consistent with the separation of the name\/value pairs in filtering, above. 
-     *                          For example, if we want to retrieve users in order of their last name (ascending), 
-     *                          first name (ascending) and hire date (descending), the request might look like this 
-     *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
+     *                           Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Allowed fields: campaign_slug, created, start_date, end_date, is_active. Use sort query-string parameter that 
+     *                           contains a delimited set of property names. For each property name, sort 
+     *                           in ascending order, and for each property prefixed with a dash ('-') sort 
+     *                           in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function getCampaigns($strAccountSlug, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
@@ -768,19 +795,22 @@ class GRPHPAPIClient implements ApiClientInterface {
      * @param integer page.  The current page, default is 1.
 
      * @param integer $intLimit. Maximum number of results to return in the response.
-     * @param string $strFilter. Allowed fields: redemption_request_id, name, lastname, email, request_status_slug, 
-     *                          request_action_slug, from, to, created. Use the following delimiters to build your filters params. 
-     *                          The vertical bar ('|') to separate individual filter phrases and a double colon ('::') to separate the names and values. 
-     *                          The delimiter of the double colon (':') separates the property name from the comparison value, 
-     *                          enabling the comparison value to contain spaces. 
-     *                          Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
-     * @param string $strSort.   Allowed fields: ame, lastname, email, created. Use sort query-string parameter that contains a delimited set 
-     *                          of property names. For each property name, sort in ascending order, and for each property prefixed with 
-     *                          a dash ('-') sort in descending order. Separate each property name with a vertical bar ('|'), 
-     *                          which is consistent with the separation of the name\/value pairs in filtering, above. 
-     *                          For example, if we want to retrieve users in order of their last name (ascending), first name (ascending) 
-     *                          and hire date (descending), the request might look like this 
-     *                          www.example.com\/users?sort='last_name|first_name|-hire_date'
+     * @param string $strFilter. Allowed fields: redemption_request_id, name, lastname, email, request_status_slug, request_action_slug, from, to, created. 
+     *                           Use the following delimiters to build your
+     *                           filters params. The vertical bar ('|') to separate individual filter 
+     *                           phrases and a double colon ('::') to separate the names and values. 
+     *                           The delimiter of the double colon (':') separates the property name 
+     *                           from the comparison value, enabling the comparison value to contain spaces. 
+     *                           Example: www.example.com\/users?filter='name::todd|city::denver|title::grand poobah'
+     * @param string $strSort.   Allowed fields: name, lastname, email, created. Use sort query-string parameter that 
+     *                           contains a delimited set of property names. For each property name, sort 
+     *                           in ascending order, and for each property prefixed with a dash ('-') sort 
+     *                           in descending order. Separate each property name with a vertical bar ('|'),
+     *                           which is consistent with the separation of the name\/value pairs in 
+     *                           filtering, above. For example, if we want to retrieve users in order of
+     *                           their last name (ascending), first name (ascending) and hire date 
+     *                           (descending), the request might look like this 
+     *                           www.example.com\/users?sort='last_name|first_name|-hire_date'
      * @return string
      */
     public function getRedemptionRequests($strAccountSlug, $intPage = 1, $intLimit = 10, $strFilter = null, $strSort = null) {
@@ -873,7 +903,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get bonuses redemption methods.
+     * Get bonuses summary per referral origin.
      *
      * @param string $strAdvocateToken. The advocate token
      * @return string
@@ -894,7 +924,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Get referrals summary by referral origin.
+     * Get referrals summary per referral origin.
      *
      * @param string $strAdvocateToken. The advocate token
      * @return string
@@ -1072,7 +1102,7 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Get a redemption request status.
      *
-     * @param string $strRedemptionRequestStatusSlug The redemption request status slug
+     * @param string $strRedemptionRequestStatusSlug. The redemption request status slug
      * @return string
      */
     public function getRedemptionRequestStatus($strRedemptionRequestStatusSlug) {
