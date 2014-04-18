@@ -95,4 +95,6 @@ interface ApiClientInterface {
     public function getRedemptionRequestStatuses();
 
     public function getRedemptionRequestStatus($strRedemptionRequestStatusSlug);
+    
+    public function getAdvocatesShareLinks($strAccountSlug, $strAdvocateToken);
 }

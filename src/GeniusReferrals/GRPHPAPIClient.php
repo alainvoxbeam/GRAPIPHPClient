@@ -17,6 +17,7 @@ use Guzzle\Http\Message\Response;
  * 
  * @author Genius Referrals Team <dev@geniusreferrals.com>
  */
+
 class GRPHPAPIClient implements ApiClientInterface {
 
     /** @var Client Guzzle client */
@@ -920,7 +921,6 @@ class GRPHPAPIClient implements ApiClientInterface {
         $strResponse = $this->objResponse->getBody(TRUE);
 
         return $strResponse;
-
     }
 
     /**
@@ -1109,6 +1109,27 @@ class GRPHPAPIClient implements ApiClientInterface {
         $objWebClient = $this->getWebClient();
 
         $strUri = $this->getApiUrl() . '/utilities/redemption-request-statuses/' . $strRedemptionRequestStatusSlug;
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->get($strUri, $arrHeaders);
+
+        $this->objResponse = $objRequest->send();
+        $strResponse = $this->objResponse->getBody(TRUE);
+
+        return $strResponse;
+    }
+
+    /**
+     * Get list of share links.
+     *
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
+     * @return string
+     */
+    public function getAdvocatesShareLinks($strAccountSlug, $strAdvocateToken) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/accounts/' . $strAccountSlug . '/advocates/' . $strAdvocateToken . '/share-links';
         $arrHeaders = $this->getHeaders();
 
         $objRequest = $objWebClient->get($strUri, $arrHeaders);
