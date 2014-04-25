@@ -9,7 +9,7 @@ use Guzzle\Http\Message\Response;
 /*
  * GRAPIPHPClient is the PHP client to consume the Genius Referrals RESTful API.
  * 
- * Genius Referrals is a referral marketing platform and word of mouse platform that allows any 
+ * Genius Referrals is a referral marketing platform and word of mouth platform that allows any 
  * company/person with a Website to increase his costumer acquisition by using word of mouth techniques 
  * thought Facebook, Twitter, Google +, Pinterest, Linkedin, Email and personal recommendations. 
  * 
