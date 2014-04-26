@@ -86,7 +86,7 @@ class GRPHPAPIClient implements ApiClientInterface {
             return $apiConfig['api_url'];
         }
     }
-
+    
     /**
      * Add common filters to a given API URI.
      *
@@ -1139,11 +1139,18 @@ class GRPHPAPIClient implements ApiClientInterface {
 
         return $strResponse;
     }
+    
+    private function getApiVersion() {
+        if (file_exists(__DIR__ . '/config.php')) {
+            require __DIR__ . '/config.php';
+            return $apiConfig['api_version'];
+        }
+    }
 
     private function getHeaders() {
         $arrHeaders = array(
             'HTTP_ACCEPT' => 'application/json',
-            'CONTENT_TYPE' => 'application/json',
+            'CONTENT_TYPE' => 'application/json; version='.$this->getApiVersion(),
         );
         return $arrHeaders;
     }
