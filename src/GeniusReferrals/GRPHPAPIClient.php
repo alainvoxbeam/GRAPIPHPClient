@@ -9,7 +9,7 @@ use Guzzle\Http\Message\Response;
 /*
  * GRAPIPHPClient is the PHP client to consume the Genius Referrals RESTful API.
  * 
- * Genius Referrals is a referral marketing platform and word of mouse platform that allows any 
+ * Genius Referrals is a referral marketing platform and word of mouth platform that allows any 
  * company/person with a Website to increase his costumer acquisition by using word of mouth techniques 
  * thought Facebook, Twitter, Google +, Pinterest, Linkedin, Email and personal recommendations. 
  * 
@@ -1149,8 +1149,8 @@ class GRPHPAPIClient implements ApiClientInterface {
 
     private function getHeaders() {
         $arrHeaders = array(
-            'HTTP_ACCEPT' => 'application/json',
-            'CONTENT_TYPE' => 'application/json; version='.$this->getApiVersion(),
+            'HTTP_ACCEPT' => 'application/json; version='.$this->getApiVersion(),
+            'CONTENT_TYPE' => 'application/json',
         );
         return $arrHeaders;
     }
