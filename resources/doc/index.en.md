@@ -4,10 +4,10 @@ Description:
 Genius Referrals in a intent to improve the integration process with its clients has created this library. 
 Which allows customers to consume, using PHP, all Genius Referrals RESTful API resources located at http://api.geniusreferrals.com/doc/. 
 
-Instalation:
+Installation:
 ------------
 
-The instalation process for this client in very simple and you can do it using different ways. 
+The installation process for this client in very simple and you can do it using different ways. 
 
 ### Using Composer
 
