@@ -86,7 +86,7 @@ class GRPHPAPIClient implements ApiClientInterface {
             return $apiConfig['api_url'];
         }
     }
-    
+
     /**
      * Add common filters to a given API URI.
      *
@@ -1120,6 +1120,45 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
+     * Get referral origins. This is needed when creating (POST) a new referral as referral_origin_slug refers to one of this origins.
+     *
+     * @return string
+     */
+    public function getReferralOrigins() {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/utilities/referral-origins';
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->get($strUri, $arrHeaders);
+
+        $this->objResponse = $objRequest->send();
+        $strResponse = $this->objResponse->getBody(TRUE);
+
+        return $strResponse;
+    }
+
+    /**
+     * Get a referral origin by a given slug.
+     *
+     * @param string $strReferralOriginSlug. The referral origins slug
+     * @return string
+     */
+    public function getReferralOrigin($strReferralOriginSlug) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/utilities/referral-origins/' . $strReferralOriginSlug;
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->get($strUri, $arrHeaders);
+
+        $this->objResponse = $objRequest->send();
+        $strResponse = $this->objResponse->getBody(TRUE);
+
+        return $strResponse;
+    }
+
+    /**
      * Get list of share links.
      *
      * @param string $strAccountSlug. The client account slug
@@ -1139,7 +1178,7 @@ class GRPHPAPIClient implements ApiClientInterface {
 
         return $strResponse;
     }
-    
+
     private function getApiVersion() {
         if (file_exists(__DIR__ . '/config.php')) {
             require __DIR__ . '/config.php';
@@ -1149,7 +1188,7 @@ class GRPHPAPIClient implements ApiClientInterface {
 
     private function getHeaders() {
         $arrHeaders = array(
-            'HTTP_ACCEPT' => 'application/json; version='.$this->getApiVersion(),
+            'HTTP_ACCEPT' => 'application/json; version=' . $this->getApiVersion(),
             'CONTENT_TYPE' => 'application/json',
         );
         return $arrHeaders;

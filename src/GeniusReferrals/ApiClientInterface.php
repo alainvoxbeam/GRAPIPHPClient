@@ -96,5 +96,9 @@ interface ApiClientInterface {
 
     public function getRedemptionRequestStatus($strRedemptionRequestStatusSlug);
     
+    public function getReferralOrigins();
+
+    public function getReferralOrigin($strReferralOriginSlug);
+    
     public function getAdvocatesShareLinks($strAccountSlug, $strAdvocateToken);
 }

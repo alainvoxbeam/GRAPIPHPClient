@@ -228,4 +228,14 @@ $jsonResponse = $objGeniusReferralsAPIClient->getRedemptionRequestStatus('reques
 $aryResponse = json_decode($jsonResponse);
 return $aryResponse;
 
+//getReferralOrigins
+$jsonResponse = $objGeniusReferralsAPIClient->getReferralOrigins();
+$aryResponse = json_decode($jsonResponse);
+return $aryResponse;
+
+//getReferralOrigin
+$jsonResponse = $objGeniusReferralsAPIClient->getReferralOrigin('facebook-share');
+$aryResponse = json_decode($jsonResponse);
+return $aryResponse;
+
 ```

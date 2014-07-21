@@ -339,6 +339,28 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
     }
 
     /*
+     * Testing getReferralOrigins
+     */
+
+    public function testGetReferralOrigins() {
+
+        $this->objWebClient->getReferralOrigins();
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
+     * Testing getReferralOrigin
+     */
+
+    public function testGetReferralOrigin() {
+
+        $this->objWebClient->getReferralOrigin('facebook-share');
+
+        $this->assertEquals($this->objWebClient->getResponseCode(), 200);
+    }
+
+    /*
      * Testing getAdvocatesShareLinks
      */
 
