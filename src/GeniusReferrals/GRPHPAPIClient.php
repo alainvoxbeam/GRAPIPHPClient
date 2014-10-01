@@ -1179,6 +1179,190 @@ class GRPHPAPIClient implements ApiClientInterface {
         return $strResponse;
     }
 
+    /**
+     * Delete advocates by account slug.
+     *
+     * @param string $strAccountSlug. The client account slug
+     * @return string
+     */
+    public function deleteAdvocates($strAccountSlug) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/accounts/' . $strAccountSlug . '/advocates';
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->delete($strUri, $arrHeaders);
+
+        $this->objResponse = $objRequest->send();
+
+        return $this->objResponse;
+    }
+
+    /**
+     * Delete advocate by account slug and advocate token.
+     *
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strAdvocateToken. The advocate token
+     * @return string
+     */
+    public function deleteAdvocate($strAccountSlug, $strAdvocateToken) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/accounts/' . $strAccountSlug . '/advocates/' . $strAdvocateToken;
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->delete($strUri, $arrHeaders);
+
+        $this->objResponse = $objRequest->send();
+
+        return $this->objResponse;
+    }
+
+    /**
+     * Get bonuses daily given.
+     *
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strCampaignSlug. The campaign slug
+     * @param string $strAdvocateToken. The advocate token
+     * @param string $strFrom.
+     * @param string $strTo.
+     * 
+     * @return string
+     */
+    public function getReportsBonusesDailyGiven($strAccountSlug, $strCampaignSlug, $strAdvocateToken, $strFrom, $strTo) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/reports/bonuses-daily-given';
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array('client_account_slug' => $strAccountSlug,
+                'campaign_slug' => $strCampaignSlug,
+                'advocate_token' => $strAdvocateToken,
+                'from' => $strFrom,
+                'to' => $strTo)));
+
+        $this->objResponse = $objRequest->send();
+        $strResponse = $this->objResponse->getBody(TRUE);
+
+        return $strResponse;
+    }
+
+    /**
+     * Get click daily participation.
+     *
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strCampaignSlug. The campaign slug
+     * @param string $strAdvocateToken. The advocate token
+     * @param string $strFrom.
+     * @param string $strTo.
+     * 
+     * @return string
+     */
+    public function getReportsClickDailyParticipation($strAccountSlug, $strCampaignSlug, $strAdvocateToken, $strFrom, $strTo) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/reports/click-daily-participation';
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array('client_account_slug' => $strAccountSlug,
+                'campaign_slug' => $strCampaignSlug,
+                'advocate_token' => $strAdvocateToken,
+                'from' => $strFrom,
+                'to' => $strTo)));
+
+        $this->objResponse = $objRequest->send();
+        $strResponse = $this->objResponse->getBody(TRUE);
+
+        return $strResponse;
+    }
+
+    /**
+     * Get referral daily participation.
+     *
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strCampaignSlug. The campaign slug
+     * @param string $strAdvocateToken. The advocate token
+     * @param string $strFrom.
+     * @param string $strTo.
+     * 
+     * @return string
+     */
+    public function getReportsReferralDailyParticipation($strAccountSlug, $strCampaignSlug, $strAdvocateToken, $strFrom, $strTo) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/reports/referral-daily-participation';
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array('client_account_slug' => $strAccountSlug,
+                'campaign_slug' => $strCampaignSlug,
+                'advocate_token' => $strAdvocateToken,
+                'from' => $strFrom,
+                'to' => $strTo)));
+
+        $this->objResponse = $objRequest->send();
+        $strResponse = $this->objResponse->getBody(TRUE);
+
+        return $strResponse;
+    }
+
+    /**
+     * Get share daily participation.
+     *
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strCampaignSlug. The campaign slug
+     * @param string $strAdvocateToken. The advocate token
+     * @param string $strFrom.
+     * @param string $strTo.
+     * 
+     * @return string
+     */
+    public function getReportsShareDailyParticipation($strAccountSlug, $strCampaignSlug, $strAdvocateToken, $strFrom, $strTo) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/reports/share-daily-participation';
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array('client_account_slug' => $strAccountSlug,
+                'campaign_slug' => $strCampaignSlug,
+                'advocate_token' => $strAdvocateToken,
+                'from' => $strFrom,
+                'to' => $strTo)));
+
+        $this->objResponse = $objRequest->send();
+        $strResponse = $this->objResponse->getBody(TRUE);
+
+        return $strResponse;
+    }
+
+    /**
+     * Get top advocates.
+     *
+     * @param string $strAccountSlug. The client account slug
+     * @param string $strCampaignSlug. The campaign slug
+     * @param integer $intLimit. Maximum number of results to return in the response.
+     * @param string $strFrom.
+     * @param string $strTo.
+     * 
+     * @return string
+     */
+    public function getReportsTopAdvocates($strAccountSlug, $strCampaignSlug, $intLimit, $strFrom, $strTo) {
+        $objWebClient = $this->getWebClient();
+
+        $strUri = $this->getApiUrl() . '/reports/top-advocates';
+        $arrHeaders = $this->getHeaders();
+
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array('client_account_slug' => $strAccountSlug,
+                'campaign_slug' => $strCampaignSlug,
+                'limit' => $intLimit,
+                'from' => $strFrom,
+                'to' => $strTo)));
+
+        $this->objResponse = $objRequest->send();
+        $strResponse = $this->objResponse->getBody(TRUE);
+
+        return $strResponse;
+    }
+
     private function getApiVersion() {
         if (file_exists(__DIR__ . '/config.php')) {
             require __DIR__ . '/config.php';

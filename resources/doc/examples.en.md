@@ -238,4 +238,37 @@ $jsonResponse = $objGeniusReferralsAPIClient->getReferralOrigin('facebook-share'
 $aryResponse = json_decode($jsonResponse);
 return $aryResponse;
 
+//deleteAdvocates
+$jsonResponse = $objGeniusReferralsAPIClient->deleteAdvocates('example-com');
+return $objGeniusReferralsAPIClient->getResponseCode();
+
+//deleteAdvocate
+$jsonResponse = $objGeniusReferralsAPIClient->deleteAdvocate('example-com', '07c159102f66a63b18d4da39bf91b06bacb7db8d');
+return $objGeniusReferralsAPIClient->getResponseCode();
+
+//getReportsBonusesDailyGiven
+$jsonResponse = $objGeniusReferralsAPIClient->getReportsBonusesDailyGiven();
+$aryResponse = json_decode($jsonResponse);
+return $aryResponse;
+
+//getReportsClickDailyParticipation
+$jsonResponse = $objGeniusReferralsAPIClient->getReportsClickDailyParticipation();
+$aryResponse = json_decode($jsonResponse);
+return $aryResponse;
+
+//getReportsReferralDailyParticipation
+$jsonResponse = $objGeniusReferralsAPIClient->getReportsReferralDailyParticipation();
+$aryResponse = json_decode($jsonResponse);
+return $aryResponse;
+
+//getReportsShareDailyParticipation
+$jsonResponse = $objGeniusReferralsAPIClient->getReportsShareDailyParticipation();
+$aryResponse = json_decode($jsonResponse);
+return $aryResponse;
+
+//getReportsTopAdvocates
+$jsonResponse = $objGeniusReferralsAPIClient->getReportsTopAdvocates();
+$aryResponse = json_decode($jsonResponse);
+return $aryResponse;
+
 ```

@@ -101,4 +101,18 @@ interface ApiClientInterface {
     public function getReferralOrigin($strReferralOriginSlug);
     
     public function getAdvocatesShareLinks($strAccountSlug, $strAdvocateToken);
+    
+    public function deleteAdvocates($strAccountSlug);
+    
+    public function deleteAdvocate($strAccountSlug, $strAdvocateToken);
+    
+    public function getReportsBonusesDailyGiven($strAccountSlug = '', $strCampaignSlug = '', $strAdvocateToken = '', $strFrom = '', $strTo = '');
+    
+    public function getReportsClickDailyParticipation($strAccountSlug = '', $strCampaignSlug = '', $strAdvocateToken = '', $strFrom = '', $strTo = '');
+    
+    public function getReportsReferralDailyParticipation($strAccountSlug = '', $strCampaignSlug = '', $strAdvocateToken = '', $strFrom = '', $strTo = '');
+    
+    public function getReportsShareDailyParticipation($strAccountSlug = '', $strCampaignSlug = '', $strAdvocateToken = '', $strFrom = '', $strTo = '');
+    
+    public function getReportsTopAdvocates($strAccountSlug = '', $strCampaignSlug = '', $intLimit = 10, $strFrom = '', $strTo = '');
 }

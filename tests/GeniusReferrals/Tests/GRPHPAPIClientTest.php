@@ -548,6 +548,83 @@ class GRPHPAPIClientTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($objResponse->getStatusCode(), 204);
     }
 
+    /*
+     * Testing deleteAdvocates
+     */
+
+    public function testDeleteAdvocates() {
+
+        $objResponse = $this->objWebClient->deleteAdvocates('example-com');
+
+        $this->assertEquals($objResponse->getStatusCode(), 204);
+    }
+
+    /*
+     * Testing deleteAdvocate
+     */
+
+    public function testDeleteAdvocate() {
+
+        $objResponse = $this->objWebClient->deleteAdvocate('example-com', '767d478bd662cfe419e1ff6e70c0a7d723493c8b');
+
+        $this->assertEquals($objResponse->getStatusCode(), 204);
+    }
+
+    /*
+     * Testing getReportsBonusesDailyGiven
+     */
+
+    public function testGetReportsBonusesDailyGiven() {
+
+        $objResponse = $this->objWebClient->getReportsBonusesDailyGiven();
+
+        $this->assertEquals($objResponse->getStatusCode(), 200);
+    }
+
+    /*
+     * Testing getReportsClickDailyParticipation
+     */
+
+    public function testGetReportsClickDailyParticipation() {
+
+        $objResponse = $this->objWebClient->getReportsClickDailyParticipation();
+
+        $this->assertEquals($objResponse->getStatusCode(), 200);
+    }
+
+    /*
+     * Testing getReportsReferralDailyParticipation
+     */
+
+    public function testGetReportsReferralDailyParticipation() {
+
+        $objResponse = $this->objWebClient->getReportsReferralDailyParticipation();
+
+        $this->assertEquals($objResponse->getStatusCode(), 200);
+    }
+
+    /*
+     * Testing getReportsShareDailyParticipation
+     */
+
+    public function testGetReportsShareDailyParticipation() {
+
+        $objResponse = $this->objWebClient->getReportsShareDailyParticipation();
+
+        $this->assertEquals($objResponse->getStatusCode(), 200);
+    }
+
+    /*
+     * Testing getReportsTopAdvocates
+     */
+
+    public function testGetReportsTopAdvocates() {
+
+        $objResponse = $this->objWebClient->getReportsTopAdvocates();
+
+        $this->assertEquals($objResponse->getStatusCode(), 200);
+    }
+
     private function getHeaders() {
         $arrHeaders = array(
             'HTTP_ACCEPT' => 'application/json',
