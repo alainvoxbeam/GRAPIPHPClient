@@ -1182,6 +1182,8 @@ class GRPHPAPIClient implements ApiClientInterface {
     /**
      * Delete advocates by account slug.
      *
+     * This method deletes all the advocates in the account, so be careful.
+     *
      * @param string $strAccountSlug. The client account slug
      * @return string
      */
@@ -1199,7 +1201,8 @@ class GRPHPAPIClient implements ApiClientInterface {
     }
 
     /**
-     * Delete advocate by account slug and advocate token.
+     * Delete advocate by account slug and advocate token.     *
+     *
      *
      * @param string $strAccountSlug. The client account slug
      * @param string $strAdvocateToken. The advocate token
