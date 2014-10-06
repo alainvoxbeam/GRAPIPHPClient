@@ -1354,7 +1354,8 @@ class GRPHPAPIClient implements ApiClientInterface {
         $strUri = $this->getApiUrl() . '/reports/top-advocates';
         $arrHeaders = $this->getHeaders();
 
-        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array('client_account_slug' => $strAccountSlug,
+        $objRequest = $objWebClient->get($strUri, $arrHeaders, array('query' => array(
+                'account_slug' => $strAccountSlug,
                 'campaign_slug' => $strCampaignSlug,
                 'limit' => $intLimit,
                 'from' => $strFrom,
