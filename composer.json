@@ -1,6 +1,6 @@
 {
     "name": "geniusreferrals/gr-api-php-client",
-    "description": "Client that allows you to consume the Genius Referrals API for implementing referral marketing programs.",
+    "description": "This client allows you to implement referral programs using the Genius Referrals RESTful API.",
     "keywords": ["geniusreferrals", "referral marketing programs", "word of mouse", "promotion programs", "referral programs", "referral", "refer a friend", "refer", "referral", "promotion campaigns", "referral campaigns", "marketing campaigns", "afiliation", "affiliate", "refer friend", "affiliates"],
     "license": "MIT",
     "authors": [
